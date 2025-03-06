@@ -1,0 +1,777 @@
+    <!DOCTYPE html>
+    <html class="no-js" lang="en">
+    <head>
+
+        <!--- basic page needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <title>Interface Design</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- mobile specific metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS
+        ================================================== -->
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/vendor.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- script
+        ================================================== -->
+        <script src="js/modernizr.js"></script>
+
+        <!-- favicons
+        ================================================== -->
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <style>
+
+            .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
+            gap: 10px; /* Space between images */
+        }
+
+        .image-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 2 columns of equal width */
+            gap: 10px; /* Space between images */
+        }
+
+            .image-grid img {
+                width: 100%; /* Ensure images fill their grid cells */
+                height: auto;
+        } /* Maintain aspect ratio */
+
+            .image-grid-3 img {
+                width: 100%; /* Ensure images fill their grid cells */
+                height: auto; /* Maintain aspect ratio */
+        }
+
+        figcaption {
+      font-style: italic;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    /* Carousel container */
+    .carousel-container {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    /* Carousel slides */
+    .carousel-slide {
+        display: none;
+        position: relative;
+        text-align: center;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Caption */
+    .carousel-caption {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: grey;
+    /*    background-color: rgba(0, 0, 0, 0.5);
+    */    padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    /* Arrows */
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: grey;
+        cursor: pointer;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 8%;
+        user-select: none;
+    }
+
+    .carousel-arrow.left {
+        left: 5px;
+    }
+
+    .carousel-arrow.right {
+        right: 5px;
+    }
+
+    .carousel-arrow:hover {
+        /*background-color: rgba(0, 0, 0, 0.2);*/
+    }
+
+    /* Dots */
+    /*.carousel-dots {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .dot.active {
+        background-color: #717171;
+    }
+    */
+
+
+
+        </style>
+
+    </head>
+
+    <body class="ss-bg-white">
+
+        <!-- preloader
+        ================================================== -->
+        <div id="preloader">
+            <div id="loader" class="dots-fade">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div id="top" class="s-wrap site-wrapper">
+
+            <!-- site header
+            ================================================== -->
+            <header class="s-header header">
+
+                <div class="header__top">
+                    <div class="header__logo">
+                        <a class="site-logo" href="index.html">
+                            <img src="images/logo.svg" alt="Homepage">
+                        </a>
+                    </div>
+
+                    <div class="header__search">
+        
+                        <form role="search" method="get" class="header__search-form" action="#">
+                            <label>
+                                <span class="hide-content">Search for:</span>
+                                <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                            </label>
+                            <input type="submit" class="header__search-submit" value="Search">
+                        </form>
+            
+                        <a href="#0" title="Close Search" class="header__search-close">Close</a>
+            
+                    </div>  <!-- end header__search -->
+
+                    <!-- toggles -->
+                    <!-- <a href="#0" class="header__search-trigger"></a> -->
+                    <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+                </div>
+
+                <nav class="header__nav-wrap">
+
+                    <ul class="header__nav">
+                        <li><a href="index.html" title="">Home</a></li>
+                        <li class="has-children">
+                            <a href="#0" title="">Categories</a>
+                            <ul class="sub-menu">
+                            <li><a href="category.html">Lifestyle</a></li>
+                            <li><a href="category.html">Health</a></li>
+                            <li><a href="category.html">Family</a></li>
+                            <li><a href="category.html">Management</a></li>
+                            <li><a href="category.html">Travel</a></li>
+                            <li><a href="category.html">Work</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children current">
+                            <a href="#0" title="">Blog</a>
+                            <ul class="sub-menu">
+                            <li><a href="single-video.html">Video Post</a></li>
+                            <li><a href="single-audio.html">Audio Post</a></li>
+                            <li><a href="single-gallery.html">Gallery Post</a></li>
+                            <li><a href="single-standard.html">Standard Post</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="styles.html" title="">Styles</a></li>
+                        <li><a href="page-about.html" title="">About</a></li>
+                        <li><a href="page-contact.html" title="">Contact</a></li>
+                    </ul> <!-- end header__nav -->
+
+                    <ul class="header__social">
+                        <li class="ss-facebook">
+                            <a href="https://facebook.com/">
+                                <span class="screen-reader-text">Facebook</span>
+                            </a>
+                        </li>
+                        <li class="ss-twitter">
+                            <a href="#0">
+                                <span class="screen-reader-text">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="ss-dribbble">
+                            <a href="#0">
+                                <span class="screen-reader-text">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="ss-behance">
+                            <a href="#0">
+                                <span class="screen-reader-text">Behance</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </header> <!-- end s-header -->
+
+
+            <!-- site content
+            ================================================== -->
+            <div class="s-content content">
+                <main class="row content__page">
+                    
+                    <article class="column large-full entry format-standard">
+
+                        <div class="media-wrap entry__media">
+                            <div class="entry__post-thumb">
+                                <img src="images/newmedia/cover1.png" 
+                                     srcset="images/newmedia/cover1.png 2000w, 
+                                             images/newmedia/cover1.png 1000w, 
+                                             images/newmedia/cover1.png 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content__page-header entry__header">
+                            <h1 class="display-1 entry__title">
+                            Interface Design works
+                            </h1>
+                            <ul class="entry__header-meta">
+                                <!--<li class="author">By <a href="#0">Jonathan Doe</a></li> -->
+                                <li class="date">May 2023</li>
+                                <li class="cat-links">
+                                    <a href="#0">UI/UX, Figma</a><a href="#0">Adobe XD, Illustrator</a>
+                                </li>
+                            </ul>
+                        </div> <!-- end entry__header -->
+
+                        <div class="entry__content">
+
+                            <p class="lead drop-cap">
+                            Client projects and explorations in wireframing layouts, focusing on guiding users through unconventional web experiences by blending familiar components with exploratory interactions while maintaining a balance between interactive and static elements.
+                            </p>
+
+                            <h2 id="title">Transport Guides - BMTC and Metro</h2>
+                            <h3 id="objective">Objective</h3>
+
+                            <p>
+
+                            Navigating transportation challenges in Bangalore presents a significant hurdle for many residents, prompting them to rely on public transportation options like buses, taxis, or auto-rickshaws. To address this, I aim to develop a comprehensive Android application catering to the needs of Bengaluru commuters, whether they rely on BMTC buses or the newly established metro railway system. This standalone app will offer users access to official routes, maps, trip planning tools, and ticket transactions, streamlining their commuting experience regardless of their chosen mode of transport. By encompassing both bus and metro functionalities, our goal is to provide a seamless and convenient solution for commuters to navigate the bustling cosmopolitan city.
+
+                            </p>
+
+                            <p style="margin-top: 3.2rem;">
+                                <img src="images/interface/3.png" 
+                                     srcset="images/interface/3.png 2000w, 
+                                             images/interface/3.png 1000w, 
+                                             images/interface/3.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                <img src="images/interface/2.png" 
+                                     srcset="images/interface/2.png 2000w, 
+                                             images/interface/2.png 1000w, 
+                                             images/interface/2.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                <img src="images/interface/4.png" 
+                                     srcset="images/interface/4.png 2000w, 
+                                             images/interface/4.png 1000w, 
+                                             images/interface/4.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                <img src="images/interface/5.png" 
+                                     srcset="images/interface/5.png 2000w, 
+                                             images/interface/5.png 1000w, 
+                                             images/interface/5.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                <img src="images/interface/6.png" 
+                                     srcset="images/interface/6.png 2000w, 
+                                             images/interface/6.png 1000w, 
+                                             images/interface/6.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                        
+                            </p>
+
+                            <p>
+                                In recent years, Bangalore's newly developed metro railway system has enhanced convenience and safety for commuters traveling within and around the cosmopolitan city. The goal was to design a comprehensive guide application for the metro railway system, enabling users to plan their journeys, manage ticket transactions, and explore city information, all while fostering a narrative-driven experience.
+                            </p>
+
+                            <p style="margin-top: 3.2rem;">
+
+                            <img src="images/interface/3.1.png" 
+                                     srcset="images/interface/3.1.png 2000w, 
+                                             images/interface/3.1.png 1000w, 
+                                             images/interface/3.1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+
+                            <img style="margin-top: 1.2rem;"src="images/interface/4.1.png" 
+                                     srcset="images/interface/4.1.png 2000w, 
+                                             images/interface/4.1.png 1000w, 
+                                             images/interface/4.1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+
+                            
+
+                            <div style="margin-top: 3.2rem;" class="image-grid">
+                                <img src="images/interface/2.1.png" 
+                                     srcset="images/interface/2.1.png 2000w, 
+                                             images/interface/2.1.png 1000w, 
+                                             images/interface/2.1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/6.1.png" 
+                                     srcset="images/interface/6.1.png 2000w, 
+                                             images/interface/6.1.png 1000w, 
+                                             images/interface/6.1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+
+                            <div style="margin-top: 1.2rem;" class="image-grid">
+                                <img src="images/interface/5.1.png" 
+                                     srcset="images/interface/5.1.png 2000w, 
+                                             images/interface/5.1.png 1000w, 
+                                             images/interface/5.1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/7.1.png" 
+                                     srcset="images/interface/7.1.png 2000w, 
+                                             images/interface/7.1.png 1000w, 
+                                             images/interface/7.1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+                        </p>
+
+                            
+                                <p style="margin-top: 3.2rem;">
+                                <img src="images/interface/9.1.png" 
+                                     srcset="images/interface/9.1.png 2000w, 
+                                             images/interface/9.1.png 1000w, 
+                                             images/interface/9.1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                                </p>
+                            
+                       
+                            
+                            
+        
+                            <h4>Cultivating Corporate Social Connectivity: An Efficient Workspace To-Do List Application for Events, Calendar Management, Messaging, and Enhanced Task Collaboration to Boost Productivity and Streamline Team Interactions.</h4>
+
+                            <p style="margin-top: 3.2rem;">
+
+                            <div class="image-grid-3">
+                                <img src="images/interface/0001.jpg" 
+                                     srcset="images/interface/0001.jpg 2000w, 
+                                             images/interface/0001.jpg 1000w, 
+                                             images/interface/0001.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/0002.jpg" 
+                                     srcset="images/interface/0002.jpg 2000w, 
+                                             images/interface/0002.jpg 1000w, 
+                                             images/interface/0002.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                                <img src="images/interface/0003.jpg" 
+                                     srcset="images/interface/0003.jpg 2000w, 
+                                             images/interface/0003.jpg 1000w, 
+                                             images/interface/0003.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+
+
+                            </div>
+
+                            <div style="margin-top: 3.2rem;" class="image-grid-3">
+                                <img src="images/interface/0004.jpg" 
+                                     srcset="images/interface/0004.jpg 2000w, 
+                                             images/interface/0004.jpg 1000w, 
+                                             images/interface/0004.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/0005.jpg" 
+                                     srcset="images/interface/0005.jpg 2000w, 
+                                             images/interface/0005.jpg 1000w, 
+                                             images/interface/0005.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                                <img src="images/interface/0006.jpg" 
+                                     srcset="images/interface/0006.jpg 2000w, 
+                                             images/interface/0006.jpg 1000w, 
+                                             images/interface/0006.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                            </div>
+                        </p>
+
+                        <p style="margin-top: 3.2rem;">
+
+                            <img src="images/interface/cweb.png" 
+                                     srcset="images/interface/cweb.png 2000w, 
+                                             images/interface/cweb.png 1000w, 
+                                             images/interface/cweb.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                            <div style="margin-top: 1.2rem;" class="image-grid">
+                                <img src="images/interface/c0001.jpg" 
+                                     srcset="images/interface/c0001.jpg 2000w, 
+                                             images/interface/c0001.jpg 1000w, 
+                                             images/interface/c0001.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/c0002.jpg" 
+                                     srcset="images/interface/c0002.jpg 2000w, 
+                                             images/interface/c0002.jpg 1000w, 
+                                             images/interface/c0002.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                            </div>
+
+                             <div style="margin-top: 1.2rem;" class="image-grid">
+                                <img src="images/interface/c0003.jpg" 
+                                     srcset="images/interface/c0003.jpg 2000w, 
+                                             images/interface/c0003.jpg 1000w, 
+                                             images/interface/c0003.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/c0004.jpg" 
+                                     srcset="images/interface/c0004.jpg 2000w, 
+                                             images/interface/c0004.jpg 1000w, 
+                                             images/interface/c0004.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                            </div>
+
+
+                            
+
+                            
+
+        
+                        
+                        <h4>Widget Iterations for Air Travel Notifications: Enhancing User Experience with Real-Time Updates on Flight Status, Gate Changes, Boarding Times, and Personalized Travel Alerts for a Seamless Journey.</h4>
+
+                            <div style="margin-top: 1.2rem;" class="image-grid">
+
+                                <img src="images/newmedia/PS1.png" 
+                                     srcset="images/newmedia/PS1.png 2000w, 
+                                             images/newmedia/PS1.png 1000w, 
+                                             images/newmedia/PS1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/PS2.png" 
+                                     srcset="images/newmedia/PS2.png 2000w, 
+                                             images/newmedia/PS2.png 1000w, 
+                                             images/newmedia/PS2.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                            </div>
+
+                        <h4>Trials of Other Features and Assets: Testing and refining additional functionalities and design elements to improve user engagement and overall experience.</h4>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/interface/chat.png" 
+                                     srcset="images/interface/chat.png 2000w, 
+                                             images/interface/chat.png 1000w, 
+                                             images/interface/chat.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/bot.png" 
+                                     srcset="images/interface/bot.png 2000w, 
+                                             images/interface/bot.png 1000w, 
+                                             images/interface/bot.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/interface/levi1.png" 
+                                     srcset="images/interface/levi1.png 2000w, 
+                                             images/interface/levi1.png 1000w, 
+                                             images/interface/levi1.png500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/levi2.png" 
+                                     srcset="images/interface/levi2.png 2000w, 
+                                             images/interface/levi2.png 1000w, 
+                                             images/interface/levi2.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/interface/acc1.png" 
+                                     srcset="images/interface/acc1.png 2000w, 
+                                             images/interface/acc1.png 1000w, 
+                                             images/interface/acc1.png500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/acc2.png" 
+                                     srcset="images/interface/acc2.png 2000w, 
+                                             images/interface/acc2.png 1000w, 
+                                             images/interface/acc2.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/interface/room1.png" 
+                                     srcset="images/interface/room1.png 2000w, 
+                                             images/interface/room1.png 1000w, 
+                                             images/interface/room1.png500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/room2.png" 
+                                     srcset="images/interface/room2.png 2000w, 
+                                             images/interface/room2.png 1000w, 
+                                             images/interface/room2.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+
+
+                        <h4>Website homepages and informational pages for clients, balancing visuals, colors, layouts, and navigation for a better user experience.</h4>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/interface/levi.png" 
+                                     srcset="images/interface/levi.png 2000w, 
+                                             images/interface/levi.png 1000w, 
+                                             images/interface/levi.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/cater.png" 
+                                     srcset="images/interface/cater.png 2000w, 
+                                             images/interface/cater.png 1000w, 
+                                             images/interface/cater.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/interface/62.png" 
+                                     srcset="images/interface/62.png 2000w, 
+                                             images/interface/62.png 1000w, 
+                                             images/interface/62.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/71.png" 
+                                     srcset="images/interface/71.png 2000w, 
+                                             images/interface/71.png 1000w, 
+                                             images/interface/71.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <h4>A tournament and monetization platform for streamers, inspired by Steam, and an Entrepreneurship Conference website with dual color schemes. The conference site features side navigation for events and workshops, a footer with subscription options, and a banner highlighting speakers and upcoming events</h4>
+
+                        
+                        <div style="margin-top: 3.2rem;" class="image-grid-3">
+                                <img src="images/interface/101.png" 
+                                     srcset="images/interface/101.png 2000w, 
+                                             images/interface/101.png 1000w, 
+                                             images/interface/101.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/interface/dis.jpg" 
+                                     srcset="images/interface/dis.jpg 2000w, 
+                                             images/interface/dis.jpg 1000w, 
+                                             images/interface/dis.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                                <img src="images/interface/tec.jpg" 
+                                     srcset="images/interface/tec.jpg 2000w, 
+                                             images/interface/tec.jpg 1000w, 
+                                             images/interface/tec.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                            </div>
+
+
+
+
+
+
+
+                           
+
+
+                            <p class="entry__tags">
+                                <span>Post Tags</span>
+            
+                                <span class="entry__tag-list">
+                                    <a href="#0">orci</a>
+                                    <a href="#0">lectus</a>
+                                    <a href="#0">varius</a>
+                                    <a href="#0">turpis</a>
+                                </span>
+                
+                            </p>
+                        </div> <!-- end entry content -->
+
+                        <div class="entry__pagenav">
+                            <div class="entry__nav">
+                                <div class="entry__prev">
+                                    <a href="#0" rel="prev">
+                                        <span>Previous Post</span>
+                                        Tips on Minimalist Design 
+                                    </a>
+                                </div>
+                                <div class="entry__next">
+                                    <a href="#0" rel="next">
+                                        <span>Next Post</span>
+                                        Less Is More 
+                                    </a>
+                                </div>
+                            </div>
+                        </div> <!-- end entry__pagenav -->
+
+                        <div class="entry__related">
+                            <h3 class="h2">Related Articles</h3>
+
+                            <ul class="related">
+                                <li class="related__item">
+                                    <a href="single-standard.html" class="related__link">
+                                        <img src="images/thumbs/masonry/walk-600.jpg" alt="">
+                                    </a>
+                                    <h5 class="related__post-title">Using Repetition and Patterns in Photography.</h5>
+                                </li>
+                                <li class="related__item">
+                                    <a href="single-standard.html" class="related__link">
+                                        <img src="images/thumbs/masonry/dew-600.jpg" alt="">
+                                    </a>
+                                    <h5 class="related__post-title">Health Benefits Of Morning Dew.</h5>
+                                </li>
+                                <li class="related__item">
+                                    <a href="single-standard.html" class="related__link">
+                                        <img src="images/thumbs/masonry/rucksack-600.jpg" alt="">
+                                    </a>
+                                    <h5 class="related__post-title">The Art Of Visual Storytelling.</h5>
+                                </li>
+                            </ul>
+                        </div> <!-- end entry related -->
+
+                    </article> <!-- end column large-full entry-->
+
+
+                        <!-- <div class="column large-12 comment-respond"> -->
+
+                            <!-- START respond -->
+                            <!-- <div id="respond"> -->
+                
+                                <!-- <h3 class="h2">Add Comment</h3>
+                
+                                <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
+                                    <fieldset> -->
+                
+                                        <!-- <div class="form-field">
+                                            <input name="cName" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
+                                        </div>
+                
+                                        <div class="form-field">
+                                            <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email" value="" type="text">
+                                        </div>
+                
+                                        <div class="form-field">
+                                            <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value="" type="text">
+                                        </div>
+                
+                                        <div class="message form-field">
+                                            <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
+                                        </div>
+                
+                                        <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Add Comment" type="submit">
+                
+                                    </fieldset> -->
+                                <!-- </form> --> <!-- end form -->
+                
+                           <!--  </div> -->
+                            <!-- END respond-->
+                
+                        <!-- </div> --> <!-- end comment-respond -->
+                
+                    <!-- </div> --> <!-- end comments-wrap -->
+                </main>
+
+            </div> <!-- end s-content -->
+
+
+            <!-- footer
+            ================================================== -->
+            <footer class="s-footer footer">
+                <div class="row">
+                    <div class="column large-full footer__content">
+                        <div class="footer__copyright">
+                            <span>© Copyright Typerite 2019</span> 
+                            <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                </div>
+            </footer>
+
+        </div> <!-- end s-wrap -->
+
+
+        <!-- Java Script
+        ================================================== -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+      // Store indexes for multiple carousels
+const carousels = document.querySelectorAll(".carousel-container");
+const carouselIndexes = Array.from(carousels).map(() => 0);
+
+function changeSlide(n, carouselIndex) {
+    carouselIndexes[carouselIndex] += n;
+    showCarousel(carouselIndexes[carouselIndex], carouselIndex);
+}
+
+function showCarousel(n, carouselIndex) {
+    const carousel = carousels[carouselIndex];
+    const slides = carousel.querySelectorAll(".carousel-slide");
+
+    // Wrap around the slide index
+    if (n >= slides.length) carouselIndexes[carouselIndex] = 0;
+    if (n < 0) carouselIndexes[carouselIndex] = slides.length - 1;
+
+    // Hide all slides in this carousel
+    slides.forEach((slide) => (slide.style.display = "none"));
+
+    // Show the current slide
+    slides[carouselIndexes[carouselIndex]].style.display = "block";
+}
+
+// Initialize all carousels
+carousels.forEach((_, index) => showCarousel(0, index));
+
+        </script>
+    </body>

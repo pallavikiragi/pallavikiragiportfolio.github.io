@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+
+    <!--- basic page needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <title>Covid</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+    <!-- mobile specific metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+        ================================================== -->
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/vendor.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+        ================================================== -->
+        <script src="js/modernizr.js"></script>
+
+    <!-- favicons
+        ================================================== -->
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                scroll-behavior: smooth;
+                /* Enables smooth scrolling */
+            }
+
+            .image-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 columns of equal width */
+                gap: 10px;
+                /* Space between images */
+            }
+
+            .image-grid img {
+                width: 100%;
+                /* Ensure images fill their grid cells */
+                height: auto;
+                /* Maintain aspect ratio */
+            }
+
+            .image-grid-3 {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 2 columns of equal width */
+                gap: 10px; /* Space between images */
+            }
+
+            .image-grid-3 img {
+                width: 100%; /* Ensure images fill their grid cells */
+                height: auto; /* Maintain aspect ratio */
+            }
+
+            figcaption {
+                font-style: italic;
+                text-align: left;
+                font-size: 13px;
+            }
+
+            /* Carousel container */
+            .carousel-container {
+                position: relative;
+                max-width: 100%;
+                margin: auto;
+                overflow: hidden;
+            }
+
+            /* Carousel slides */
+            .carousel-slide {
+                display: none;
+                position: relative;
+                text-align: center;
+            }
+
+            .carousel-slide img {
+                width: 100%;
+                height: auto;
+            }
+
+            /* Caption */
+            .carousel-caption {
+                position: absolute;
+                bottom: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: grey;
+            /*    background-color: rgba(0, 0, 0, 0.5);
+            */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: grey;
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 8%;
+            user-select: none;
+        }
+
+        .carousel-arrow.left {
+            left: 5px;
+        }
+
+        .carousel-arrow.right {
+            right: 5px;
+        }
+
+        .carousel-arrow:hover {
+            /*background-color: rgba(0, 0, 0, 0.2);*/
+        }
+
+        /* Dots */
+        /*.carousel-dots {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .dot.active {
+        background-color: #717171;
+    }
+    */
+    .large-6, .large-half {
+        -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 98%;
+        max-width: 99%;
+    }
+    .container {
+        display: flex;
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    .column {
+        padding: 20px;
+    }
+
+    .large-half {
+        width: 50%;
+    }
+
+    .content {
+/*            background-color: #f9f9f9;
+*/            /*padding: 20px;*/
+/*border-radius: 8px;*/
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #eeeeee00;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 65px;
+    overflow-y: auto;
+    /* border-left: 2px solid #ccc; */
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+}
+
+/* Sidebar Styling */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+/*            margin-bottom: 10px;
+*/        }
+
+.sidebar ul li a {
+    display: block;
+    padding: 3px 5px;
+    color: #b0b0b0;
+    /*color: #e7e7e7;*/
+    font-weight: lighter;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Active Link Animation */
+.sidebar ul li a.active {
+    color: black;
+/*            background: linear-gradient(90deg, #ff6600, #ff3300);
+*/            font-weight: bold;
+/*            box-shadow: 0px 4px 10px rgba(255, 102, 0, 0.3);
+*/            transform: scale(1.05);
+}
+
+/* Subtle Hover Effect */
+.sidebar ul li a:hover {
+/*            background: rgba(255, 102, 0, 0.1);
+*/            color: grey;
+}
+
+/* Smooth Transition */
+.sidebar ul li a {
+    transition: all 0.4s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0);
+        box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    .sidebar ul {
+        display: flex
+        ;
+        justify-content: space-around;
+        padding-top: 70px;
+        /*width: 312px;*/
+        width: 100%;
+        flex-wrap: wrap;
+        background: black;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    .sidebar ul li {
+        margin: 0;
+    }
+
+    .sidebar ul li a {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+
+    .column {
+        padding: 0px;
+    }
+}
+</style>
+
+</head>
+
+<body class="ss-bg-white">
+
+    <!-- preloader
+        ================================================== -->
+    <!-- <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div> -->
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+            ================================================== -->
+            <header class="s-header header">
+
+                <div class="header__top">
+                    <div class="header__logo">
+                        <a class="site-logo" href="index.html">
+                            <span style="color: rgba(0, 0, 0, 0.75) ;font-size: 32px; font-weight: bold;">Pallavi
+                            Kiragi</span>
+                            <span style="color: rgba(0, 0, 0, 0.75);font-size: 18px; font-weight: regular;">UX/Interaction
+                            Designer Artist</span>
+                        </a>
+                    </div>
+
+                    <div class="header__search">
+
+                        <form role="search" method="get" class="header__search-form" action="#">
+                            <label>
+                                <span class="hide-content">Search for:</span>
+                                <input type="search" class="header__search-field" placeholder="Type Keywords" value=""
+                                name="s" title="Search for:" autocomplete="off">
+                            </label>
+                            <input type="submit" class="header__search-submit" value="Search">
+                        </form>
+
+                        <a href="#0" title="Close Search" class="header__search-close">Close</a>
+
+                    </div> <!-- end header__search -->
+
+                    <!-- toggles -->
+                    <!-- <a href="#0" class="header__search-trigger"></a> -->
+                    <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+                </div>
+
+                <nav class="header__nav-wrap">
+
+                    <ul class="header__nav">
+                        <li><a href="index.html" title="">Home</a></li>
+                        <li class="has-children">
+                            <a href="#0" title="">Categories</a>
+                            <ul class="sub-menu">
+                                <li><a href="category.html">Lifestyle</a></li>
+                                <li><a href="category.html">Health</a></li>
+                                <li><a href="category.html">Family</a></li>
+                                <li><a href="category.html">Management</a></li>
+                                <li><a href="category.html">Travel</a></li>
+                                <li><a href="category.html">Work</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children current">
+                            <a href="#0" title="">Blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="single-video.html">Video Post</a></li>
+                                <li><a href="single-audio.html">Audio Post</a></li>
+                                <li><a href="single-gallery.html">Gallery Post</a></li>
+                                <li><a href="single-standard.html">Standard Post</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="styles.html" title="">Styles</a></li>
+                        <li><a href="page-about.html" title="">About</a></li>
+                        <li><a href="page-contact.html" title="">Contact</a></li>
+                    </ul> <!-- end header__nav -->
+
+                    <ul class="header__social">
+                        <li class="ss-facebook">
+                            <a href="https://facebook.com/">
+                                <span class="screen-reader-text">Facebook</span>
+                            </a>
+                        </li>
+                        <li class="ss-twitter">
+                            <a href="#0">
+                                <span class="screen-reader-text">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="ss-dribbble">
+                            <a href="#0">
+                                <span class="screen-reader-text">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="ss-behance">
+                            <a href="#0">
+                                <span class="screen-reader-text">Behance</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </header> <!-- end s-header -->
+
+
+        <!-- site content
+            ================================================== -->
+            <div class="s-content content">
+                <main class="row content__page">
+                    <div class="column large-half">
+                        <article class="column large-full entry format-standard">
+
+                            <!-- Cover Image -->
+                            <section id="cover">
+                                <div class="media-wrap entry__media">
+                                    <div class="entry__post-thumb">
+                                        <img src="images\covid\covidcover.png" 
+                                        srcset="images\covid\covidcover.png 2000w, 
+                                        images\covid\covidcover.png 1000w, 
+                                        images\covid\covidcover.png 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Header -->
+                            <header class="content__page-header entry__header">
+                                <h1 class="display-1 entry__title">Covid Sound</h1>
+                                <ul class="entry__header-meta">
+                                    <li class="date">2022</li>
+                                    <li class="cat-links">
+                                        <a href="#0">OSC, Data visualization</a>
+                                        <a href="#0">Processing, Java , Excel</a>
+                                    </li>
+                                </ul>
+                            </header>
+
+                            <!-- Objective Section -->
+                            <section id="Introduction">
+
+                                <p class="lead drop-cap">
+                                    Sonic data visualization of active cases and mortality rates across India's states and union territories from the onset of COVID-19 to March 2022, created using OSC and sound synthesis. This project was featured in the Museum of Contemporary Digital Arts Summer Show 2022. 
+                                </p>
+
+                                <div class="entry__post-thumb">
+                                    <img src="images\covid\covidintro.png" 
+                                    srcset="images\covid\covidintro.png 2000w, 
+                                    images\covid\covidintro.png 1000w, 
+                                    images\covid\covidintro.png 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                                </div>
+                            </section>
+                            <section id="Video">
+                                <iframe width="auto" height="auto" src="https://www.youtube.com/embed/aC35aiITV2M" frameborder="0" allowfullscreen="" style="width: 100%; height: 515px; margin-top: 1.2rem;"></iframe>
+                            </section>
+
+                            <section id="MoCDA">
+                                <div class="marquee">
+                                    <p>Selected in the Museum of Contemporary Digital Arts (MoCDA) Summer Show 2022</p>
+                                </div>
+
+                                <div style="text-align: center"><iframe width="1200" height="515" src="https://www.youtube.com/embed/F4Ekt5whvb8" frameborder="0" allow=" autoplay; picture-in-picture" allowfullscreen="" style="width: 1000px; height: 448.423px;margin-top: 1.2rem;" class="" data-scale="100"></iframe></div>
+
+
+
+
+                                <img style="width: 100%" src="images/about.png" 
+                                srcset="images/about/covidrec.png 1x, images/about/covidrec.png 2x" alt="">
+                            </section>
+
+                            <section id="Tools">
+                                <br>
+                                <br>
+
+                                <p>
+                                    The dataset was downloaded from a source online and loaded into the processing code. Mapped the cases and deaths code data to the frequency and amplitude of Sin Oscillator and Tri Oscillator respectively. Color-coded each state in rainbow order. The date and State name were in bold white color as the date passes by for each state.
+                                </p>
+
+                                <p>
+                                    <br>
+                                    <b>Tools & Software used:</b> OSC platform, Processing - IDE For Java code, Excel, Adobe Illustrator / Fonts
+                                </p>
+
+                                <div style="margin-top: 3.2rem;" class="image-grid-3">
+                                    <img src="images/covid/java.jpg" 
+                                    srcset="images/covid/java.jpg 2000w, 
+                                    images/covid/java.jpg 1000w, 
+                                    images/covid/java.jpg 500w" 
+                                    sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+
+                                    <img src="images/covid/ml.jpg" 
+                                    srcset="images/covid/ml.jpg 2000w, 
+                                    images/covid/ml.jpg 1000w, 
+                                    images/covid/ml.jpg 500w" 
+                                    sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                                    <img src="images/covid/osc.jpg" 
+                                    srcset="images/covid/osc.jpg 2000w, 
+                                    images/covid/osc.jpg 1000w, 
+                                    images/covid/osc.jpg 500w" 
+                                    sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                                </div>
+                            </section>
+
+                            
+
+
+
+                            <p class="entry__tags">
+                               <span>Post Tags</span>
+
+                               <span class="entry__tag-list">
+                                   <a href="#0">orci</a>
+                                   <a href="#0">lectus</a>
+                                   <a href="#0">varius</a>
+                                   <a href="#0">turpis</a>
+                               </span>
+
+                           </p>
+                       </div> <!-- end entry content -->
+
+                       <div class="entry__pagenav">
+                           <div class="entry__nav">
+                               <div class="entry__prev">
+                                   <a href="#0" rel="prev">
+                                       <span>Previous Post</span>
+                                       Tips on Minimalist Design
+                                   </a>
+                               </div>
+                               <div class="entry__next">
+                                   <a href="#0" rel="next">
+                                       <span>Next Post</span>
+                                       Less Is More
+                                   </a>
+                               </div>
+                           </div>
+                       </div> <!-- end entry__pagenav -->
+
+                       <div class="entry__related">
+                           <h3 class="h2">Related Articles</h3>
+
+                           <ul class="related">
+                               <li class="related__item">
+                                   <a href="single-standard.html" class="related__link">
+                                       <img src="images/thumbs/masonry/walk-600.jpg" alt="">
+                                   </a>
+                                   <h5 class="related__post-title">Using Repetition and Patterns in Photography.</h5>
+                               </li>
+                               <li class="related__item">
+                                   <a href="single-standard.html" class="related__link">
+                                       <img src="images/thumbs/masonry/dew-600.jpg" alt="">
+                                   </a>
+                                   <h5 class="related__post-title">Health Benefits Of Morning Dew.</h5>
+                               </li>
+                               <li class="related__item">
+                                   <a href="single-standard.html" class="related__link">
+                                       <img src="images/thumbs/masonry/rucksack-600.jpg" alt="">
+                                   </a>
+                                   <h5 class="related__post-title">The Art Of Visual Storytelling.</h5>
+                               </li>
+                           </ul>
+                       </div> <!-- end entry related -->
+
+                   </section>
+
+
+
+
+
+
+                   <!-- Navigation (Previous & Next Posts) -->
+                   <section class="entry__pagenav">
+                    <div class="entry__nav">
+                        <div class="entry__prev">
+                            <a href="#0" rel="prev">
+                                <span>Previous Post</span>
+                                Tips on Minimalist Design
+                            </a>
+                        </div>
+                        <div class="entry__next">
+                            <a href="#0" rel="next">
+                                <span>Next Post</span>
+                                Less Is More
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Related Articles -->
+                <section class="entry__related">
+                    <h3 class="h2">Related Articles</h3>
+                    <ul class="related">
+                        <li class="related__item">
+                            <a href="single-standard.html" class="related__link">
+                                <img src="images/thumbs/masonry/walk-600.jpg" alt="">
+                            </a>
+                            <h5 class="related__post-title">Using Repetition and Patterns in Photography.</h5>
+                        </li>
+                        <li class="related__item">
+                            <a href="single-standard.html" class="related__link">
+                                <img src="images/thumbs/masonry/dew-600.jpg" alt="">
+                            </a>
+                            <h5 class="related__post-title">Health Benefits Of Morning Dew.</h5>
+                        </li>
+                        <li class="related__item">
+                            <a href="single-standard.html" class="related__link">
+                                <img src="images/thumbs/masonry/rucksack-600.jpg" alt="">
+                            </a>
+                            <h5 class="related__post-title">The Art Of Visual Storytelling.</h5>
+                        </li>
+                    </ul>
+                </section>
+
+            </article>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="column large-half">
+            <aside class="sidebar">
+                <!-- <h2>Additional Content</h2> -->
+                <ul>
+                    <li><a href="#Introduction">Introduction</a></li>
+                    <li><a href="#Video">Video</a></li>
+                    <li><a href="#MoCDA">MoCDA Feature</a></li>
+                    <!--  -->
+                    <li><a href="#Tools">Tools & Software</a></li>
+
+                    <!-- <li><a href="#Widget-Library">2. Widget-Library</a></li>
+                        <li><a href="#Mobile-Prototype">3. Mobile-Prototype</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="#AI-Widgets">AI Widgets</a></li> -->
+                        <!-- <li><a href="#Sample-Interface">Sample-Interface</a></li> -->
+                        <!-- <li><a href="#Usability-Test-and-Responses">Usability Test</a></li>
+                        <li><a href="#Takeways">Key Takeways</a></li> -->
+                        <!--  -->
+                    <!-- <li><a href="#Concept-Maps">Concept Maps</a></li>
+                    <li><a href="#Widget-Library">Widget-Library</a></li>
+                    <li><a href="#Mobile-Prototype">Mobile-Prototype</a></li> -->
+                </ul>
+            </aside>
+        </div>
+    </main>
+
+
+</div> <!-- end s-content -->
+
+
+    <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">
+                        <span>Covid Sound</span>
+                        <span>Design by Pallavi Kiragi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+        ================================================== -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+        // Store indexes for multiple carousels
+        const carousels = document.querySelectorAll(".carousel-container");
+        const carouselIndexes = Array.from(carousels).map(() => 0);
+
+        function changeSlide(n, carouselIndex) {
+            carouselIndexes[carouselIndex] += n;
+            showCarousel(carouselIndexes[carouselIndex], carouselIndex);
+        }
+
+        function showCarousel(n, carouselIndex) {
+            const carousel = carousels[carouselIndex];
+            const slides = carousel.querySelectorAll(".carousel-slide");
+
+            // Wrap around the slide index
+            if (n >= slides.length) carouselIndexes[carouselIndex] = 0;
+            if (n < 0) carouselIndexes[carouselIndex] = slides.length - 1;
+
+            // Hide all slides in this carousel
+            slides.forEach((slide) => (slide.style.display = "none"));
+
+            // Show the current slide
+            slides[carouselIndexes[carouselIndex]].style.display = "block";
+        }
+
+        // Initialize all carousels
+        carousels.forEach((_, index) => showCarousel(0, index));
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".sidebar ul li a");
+
+            function activateNavLink() {
+                let currentSection = null;
+
+                sections.forEach((section) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentSection = section;
+                    }
+                });
+
+                if (currentSection) {
+                    navLinks.forEach((link) => link.classList.remove("active"));
+                    const activeLink = document.querySelector(`.sidebar ul li a[href="#${currentSection.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add("active");
+                    }
+                }
+            }
+
+            // Smooth scrolling when clicking sidebar links
+            navLinks.forEach((link) => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 50,
+                            behavior: "smooth",
+                        });
+                    }
+                });
+            });
+
+            // Optimize performance by debouncing scroll event
+            let scrollTimeout;
+            window.addEventListener("scroll", function () {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(activateNavLink, 100);
+            });
+
+            // Initial activation on page load
+            activateNavLink();
+        });
+
+    </script>
+
+</body>

@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>About - Typerite</title>
+    <title>About</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -29,6 +29,32 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        
+         .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
+            gap: 10px; /* Space between images */
+        }
+
+        .image-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 2 columns of equal width */
+            gap: 10px; /* Space between images */
+        }
+
+            .image-grid img {
+                width: 100%; /* Ensure images fill their grid cells */
+                height: auto;
+        } /* Maintain aspect ratio */
+
+            .image-grid-3 img {
+                width: 100%; /* Ensure images fill their grid cells */
+                height: auto; /* Maintain aspect ratio */
+        }
+
+    </style>
 
 </head>
 
@@ -134,85 +160,544 @@
         </header> <!-- end s-header -->
 
 
+     
         <!-- site content
         ================================================== -->
         <div class="s-content content">
-            <main class="row content__page">
+            <main class="row s-styles">
                 
-                <section class="column large-full entry format-standard">
+                <!-- styles
+                ================================================== -->
+                <section id="styles" class="column large-full">
 
                     <div class="media-wrap">
-                        <div>
-                            <img src="images/thumbs/about/about-1000.jpg" srcset="images/thumbs/about/about-2000.jpg 2000w, 
-                                      images/thumbs/about/about-1000.jpg 1000w, 
-                                      images/thumbs/about/about-500.jpg 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
-                        </div>
+
+                        <img src="images/thumbs/about/about.png" 
+                                     srcset="images/thumbs/about/about.png 2000w, 
+                                             images/thumbs/about/about.png 1000w, 
+                                             images/thumbs/about/about.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
                     </div>
-
-                    <div class="content__page-header">
-                        <h1 class="display-1">
-                        Hello, We Are TypeRite.
-                        </h1>
-                    </div> <!-- end content__page-header -->
-
-                    <p class="lead drop-cap">
-                    Duis ex ad cupidatat tempor Excepteur cillum cupidatat 
-                    fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation 
-                    incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor 
-                    dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui 
-                    labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua 
-                    ea nisi sint.
-                    </p>
-
-                    <p>
-                    Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat 
-                    dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit 
-                    id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit 
-                    nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam 
-                    consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut 
-                    dolore culpa occaecat.
-                    </p>
-
-                    <h2>This Is Our Story</h2>
-
-                    <p>
-                    Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti 
-                    dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique 
-                    sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis 
                     
-                    <p>
-                    Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor 
-                    sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim 
-                    mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco. Lorem 
-                    ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat aute.
-                    </p>
+                    <div class="row section-intro add-bottom">
 
-                    <hr>
+                        <div class="column large-full">
 
-                    <div class="row block-large-1-2 block-tab-full">
-                        <div class="column">
-                            <h4>Who We Are.</h4>
-                            <p>Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit.</p>
-                        </div>
+                            <h1 class="display-1">Multidisciplinary Designer | Artist | Musician</h1>
 
-                        <div class="column">
-                            <h4>Our Mission.</h4>
-                            <p>Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit.</p>
-                        </div>
+                            <!-- <p class="lead">I specialize in crafting human-centric experiences by blending methodologies across disciplines, where the realms of design and interaction converge
+                            </p> -->
 
-                        <div class="column">
-                            <h4>Our Vision.</h4>
-                            <p>Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit.</p>
-                        </div>
-
-                        <div class="column">
-                            <h4>Our Core Values.</h4>
-                            <p>Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit.</p>
                         </div>
 
                     </div>
 
-                </section>
+                    <div class="row">
+
+                        <div class="column large-6 tab-full">
+
+                            <h3>About</h3>
+
+                            <p class="drop-cap">I specialize in crafting human-centric experiences by blending methodologies across disciplines, where the realms of design and interaction converge
+
+                            
+                            I believe Interaction drives experience through Experiementation, Embracing transdisciplinary design values and actions, Familiarize with trends and assess their relevance to the user's definition and experience via perception and thought process.
+
+                            My other form of creative expression is music production, specifically sound design and synthesis applied to film scoring and electronic music.
+                            </p>
+
+                            <!-- <h3>Small Print</h3>
+
+                            <p>Buy one widget, get one free!
+                            <small>(While supplies last. Offer expires on the vernal equinox. Not valid in Ohio.)</small>
+                            </p>
+ -->
+                        </div>
+
+
+                        <div class="column large-6 tab-full">
+
+                            <h3>Fields</h3>
+                            <ul>
+                                <li>Design and development of Physical and Digital products. </li>
+                                <li>Experience in Spatial design of constructing landscapes for services. </li>
+                                <li>Services with Data-driven and audit outcomes</li>
+                                <li>Tangible interactions of installations and systems. </li>
+                                <li>Assistance design for challenged individuals.</li>
+                                <li>Auditory Design and Synthesis in experience platform</li>
+                            </ul>
+
+                            <!-- <p><a href="#"><img width="120" height="120" class="pull-left" alt="sample-image" src="images/sample-image.jpg"></a> -->
+
+                            <!-- <p>A <a href="#">link</a>,
+                            <abbr title="this really isn't a very good description">abbrebation</abbr>,
+                            <strong>strong text</strong>,
+                            <em>em text</em>,
+                            <del>deleted text</del>, and
+                            <mark>this is a mark text.</mark>
+                            <code>.code</code>
+                            </p> -->
+
+                        </div>
+
+                    </div> <!-- end row -->
+
+
+                    <h3>Experience</h3>
+
+                    <div class="row">
+
+
+                        <div class="column large-6 tab-full">
+
+                            <blockquote cite="http://where-i-got-my-info-from.com">
+                                
+                                <b>IMMERSIONX TECHNOLOGIES</b>
+                                <p style="font-size: 18px; margin-bottom: 20px">Interaction Designer</p>
+
+                                <p style="font-size: 16px">
+                                Develop Interactive capablities for B2B clients, advertise new product or
+                                services to be launched. Ideate and execute UI assets and interactive
+                                modals to create working prototypes and implement as tangible experiences.</p>
+                                
+                                <cite style="margin-top: 15px">
+                                    <a href="#0">May to November 2024</a>
+                                    
+                                </cite>
+                                <p>
+
+                                <a class="btn btn--stroke full-width" href="#0">Go to Works</a>
+                                </p>
+                                <!-- <cite style="margin-top: 15px">
+                                    
+                                    <a href="#0">Go to works</a>
+                                </cite> -->
+                            </blockquote>
+
+                            <!-- h3>Pull Quotes</h3>
+
+                            <aside class="pull-quote">
+                                <blockquote>
+                                <p>
+                                When you look in the eyes of grace, when you meet grace, 
+                                when you embrace grace, when you see the nail prints in 
+                                grace’s hands and the fire in his eyes, when you feel his 
+                                relentless love for you - it will not motivate you to sin. 
+                                It will motivate you to righteousness.
+                                </p>
+                                </blockquote>
+                            </aside> -->
+
+                        </div>
+
+                        <div class="column large-6 tab-full">
+
+<!--                             <h3>Block Quotes</h3>
+ -->
+                            <blockquote cite="http://where-i-got-my-info-from.com">
+                                
+                                <b>INDIAN MUSIC EXPERIENCE MUSEUM</b>
+                                <p style="font-size: 18px; margin-bottom: 20px">Designer</p>
+
+                                <p style="font-size: 16px">
+                                I focused on evaluating and refining exhibit spaces and interactive
+                                elements, designing diverse visitor experiences, brainstorming
+                                innovative enhancements, and developing new interactive stations for
+                                improved functionality and adaptability</p>
+                                
+                                <cite style="margin-top: 15px">
+                                    <a href="#0">June 2023 to February 2024</a>
+                                    
+                                </cite>
+                                <cite style="margin-top: 15px">
+                                    
+                                    <a href="#0">Go to works</a>
+                                </cite>
+                            </blockquote>
+
+                           
+
+                        </div>
+
+                    </div> <!-- end row -->
+
+                    <div class="row">
+
+
+                        <div class="column large-6 tab-full">
+
+                            <blockquote cite="http://where-i-got-my-info-from.com">
+                                
+                                <b> ZIROH LABS</b>
+                                <p style="font-size: 18px; margin-bottom: 20px">UI/UX Designer</p>
+
+                                <p style="font-size: 16px">
+                                 Designed a UI database for academic institutions, teams, dashboard interfaces, and navigation as well as brainstorm on a new product launch. Benefitted highly on navigation and product ux developement. Ziroh Labs is an innovative driven deep-tech firm in the area of data privacy and solutions.</p>
+                                
+                                <cite style="margin-top: 15px">
+                                    <a href="#0">June to August 2022</a>
+                                    
+                                </cite>
+                                <cite style="margin-top: 15px">
+                                    
+                                    <a href="#0">Go to works</a>
+                                </cite>
+                            </blockquote>
+
+                            <!-- h3>Pull Quotes</h3>
+
+                            <aside class="pull-quote">
+                                <blockquote>
+                                <p>
+                                When you look in the eyes of grace, when you meet grace, 
+                                when you embrace grace, when you see the nail prints in 
+                                grace’s hands and the fire in his eyes, when you feel his 
+                                relentless love for you - it will not motivate you to sin. 
+                                It will motivate you to righteousness.
+                                </p>
+                                </blockquote>
+                            </aside> -->
+
+                        </div>
+
+                        <div class="column large-6 tab-full">
+
+<!--                             <h3>Block Quotes</h3>
+ -->
+                            <blockquote cite="http://where-i-got-my-info-from.com">
+                                
+                                <b>SOLRUF INDIA PRIVATE LIMITED</b>
+                                <p style="font-size: 18px; margin-bottom: 20px">UI/UX Designer</p>
+
+                                <p style="font-size: 16px">
+                                 My contribution was building an e-commerce platform on the web and app for solar energy products. Using visual cues, informative descriptions, and procedural interfaces were key considerations in building a renewable energy marketplace. Benefitted marketing strategy to expose clean energy products. Solruf is a marketplace and installation platform to provide solar energy applications in homes and buildings.</p>
+                                
+                                <cite style="margin-top: 15px">
+                                    <a href="#0">June to August 2021</a>
+                                    
+                                </cite>
+                                <cite style="margin-top: 15px">
+                                    
+                                    <a href="#0">Go to works</a>
+                                </cite>
+                            </blockquote>
+
+                           
+
+                        </div>
+
+                    </div> <!-- end row -->
+
+
+
+                    <div class="row half-bottom">
+
+                        <div class="column large-6 tab-full">
+
+                            <h3>Skillsets</h3>
+
+                            <img src="images/about.png" 
+                                     srcset="images/about/skillset.png 1x, images/about/skillset.png 2x" alt="">
+
+
+
+                            <!-- <ol>
+                                <li>Here is an example</li>
+                                <li>of an ordered list.</li>
+                                <li>A parent list item.
+                                    <ul>
+                                        <li>one</li>
+                                        <li>two</li>
+                                        <li>three</li>
+                                    </ul>
+                                    </li>
+                                    <li>A list item.</li>
+                                </ol>
+
+                            <ul class="disc">
+                                <li>Here is an example</li>
+                                <li>of an unordered list.</li>
+                            </ul>
+
+                            <h3>Definition Lists</h3>
+
+                            <h5>a) Multi-line Definitions (default) </h5>
+
+                            <dl>
+                                <dt><strong>This is a term</strong></dt>
+                                    <dd>this is the definition of that term, which both live in a <code>dl</code>.</dd>
+                                <dt><strong>Another Term</strong></dt>
+                                    <dd>And it gets a definition too, which is this line</dd>
+                                    <dd>This is a 2<sup>nd</sup> definition for a single term. A <code>dt</code> may be followed by multiple <code>dd</code>s.</dd>
+                            </dl>
+ -->
+                        </div>
+
+                        <div class="column large-6 tab-full">
+
+                            <!-- <h3>Buttons</h3>
+
+                            <p>
+                                <a class="btn btn--primary full-width" href="#0">Primary Button</a>
+                                <a class="btn full-width" href="#0">Default Button</a>
+                                <a class="btn btn--stroke full-width" href="#0">Stroke Button</a>
+                            </p> -->
+
+                            <h3>Tool Bars</h3>
+
+                            <img src="images/about.png" 
+                                     srcset="images/about/toolbar.png 1x, images/about/toolbar.png 2x" alt="">
+                            
+                            <!-- <ul class="skill-bars">
+                                <li>
+                                <div class="progress percent90"><span>90%</span></div>
+                                <strong>HTML5</strong>
+                                </li>
+                                <li>
+                                <div class="progress percent85"><span>85%</span></div>
+                                <strong>CSS3</strong>
+                                </li>
+                                <li>
+                                <div class="progress percent70"><span>70%</span></div>
+                                <strong>JQuery</strong>
+                                </li>
+                                <li>
+                                <div class="progress percent95"><span>95%</span></div>
+                                <strong>PHP</strong>
+                                </li>
+                                <li>
+                                <div class="progress percent75"><span>75%</span></div>
+                                <strong>Wordpress</strong>
+                                </li>
+                                <li>
+                                <div class="progress percent90"><span>90%</span></div>
+                                <strong>Angular JS</strong>
+                                </li>
+                            </ul>
+ -->
+                        </div>
+
+                    </div> <!-- end row -->
+
+                    <div class="row half-bottom">
+
+                        <h3>Featured</h3>
+
+                        <div class="marquee">
+                                <p>Selected in the Museum of Contemporary Digital Arts (MoCDA) Summer Show 2022</p>
+                        </div>
+                        <br>
+                        <a href="https://www.mocda.org/artists/pallavi-kiragi" target="_blank">Credentials</a>
+
+                        <div style="text-align: center"><iframe width="1200" height="515" src="https://www.youtube.com/embed/F4Ekt5whvb8" frameborder="0" allow=" autoplay; picture-in-picture" allowfullscreen="" style="width: 1000px; height: 448.423px;" class="" data-scale="100"></iframe></div>
+
+                        <img style="width: 100%" src="images/about.png" 
+                                     srcset="images/about/covidrec.png 1x, images/about/covidrec.png 2x" alt="">
+                    </div>
+
+
+                    <!-- <div class="row half-bottom">
+
+                        <div class="column large-6 tab-full">
+                                
+                            <h1>H1 Heading</h1>
+                            <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                            Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                            <h2>H2 Heading</h2>
+                            <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                            Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                            <h3>H3 Heading</h3>
+                            <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                            Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                        </div>
+
+                        <div class="column large-6 tab-full">
+                                
+                            <h4>H4 Heading</h4>
+                            <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                            Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                            <h5>H5 Heading</h5>
+                            <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                            Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                            <h6>H6 Heading</h6>
+                            <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                            Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row half-bottom">
+
+                        <div class="column large-six tab-full">
+
+                                <h3>Stats Tabs</h3>
+
+                            <ul class="stats-tabs">
+                                <li><a href="#">1,234 <em>Sasuke</em></a></li>
+                                <li><a href="#">567 <em>Hinata</em></a></li>
+                                <li><a href="#">23,456 <em>Naruto</em></a></li>
+                                <li><a href="#">3,456 <em>Kiba</em></a></li>
+                                <li><a href="#">456 <em>Shikamaru</em></a></li>
+                                <li><a href="#">26 <em>Sakura</em></a></li>
+                            </ul>
+
+                        </div>
+
+                        <div class="column large-six tab-full">
+                            <h3>Code Block</h3>
+                
+<pre><code>
+    code {
+        font-size: 1.4rem;
+        margin: 0 .2rem;
+        padding: .2rem .6rem;
+        white-space: nowrap;
+        background: #F1F1F1;
+        border: 1px solid #E1E1E1;  
+        border-radius: 3px;
+    }
+</code></pre>
+                        </div>
+
+                    </div>  --><!-- end row -->
+
+                   <!--  <div class="row half-bottom">
+
+                        <div class="column large-6 tab-full">
+
+                            <h3>Responsive Image</h3>
+                            <p><img src="images/wheel-500.jpg" 
+                                srcset="images/wheel-1000.jpg 1000w, 
+                                images/wheel-500.jpg 500w" 
+                                sizes="(max-width: 1000px) 100vw, 1000px" alt="">
+                            </p>
+
+                        </div>
+
+                        <div class="column large-6 tab-full">
+
+                            <h3>Responsive video</h3>
+
+                            <div class="video-container">
+                            <iframe src="https://player.vimeo.com/video/14592941?color=00a650&title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+                            </div>
+
+                        </div>
+                        
+                    </div> --> <!-- end row -->
+
+                    <!-- <div class="row add-bottom">
+
+                        <div class="column large-full">
+
+                            <h3>Tables</h3>
+                            <p>Be sure to use properly formed table markup with <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> when building a <code>table</code>.</p>
+
+                            <div class="table-responsive">
+
+                                <table>
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Sex</th>
+                                            <th>Location</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Naruto Uzumaki</td>
+                                            <td>16</td>
+                                            <td>Male</td>
+                                            <td>Konoha</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sakura Haruno</td>
+                                            <td>16</td>
+                                            <td>Female</td>
+                                            <td>Konoha</td>
+                                        </tr>
+                                        </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                        
+                    </div> --> <!-- end row -->    
+
+                    <div class="row">
+
+                        <div class="column large-6 tab-full">
+
+                            <h3>Form Styles</h3>
+
+                            <form>
+                                <div>
+                                    <label for="sampleInput">Your email</label>
+                                    <input class="full-width" type="email" placeholder="test@mailbox.com" id="sampleInput">
+                                </div>
+                                <div>
+                                    <label for="sampleRecipientInput">Reason for contacting</label>
+                                    <div class="ss-custom-select">
+                                        <select class="full-width" id="sampleRecipientInput">
+                                            <option value="Option 1">Questions</option>
+                                            <option value="Option 2">Report</option>
+                                            <option value="Option 3">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <label for="exampleMessage">Message</label>
+                                <textarea class="full-width" placeholder="Your message" id="exampleMessage"></textarea>
+
+                                <label class="add-bottom">
+                                    <input type="checkbox">
+                                    <span class="label-text">Send a copy to yourself</span>
+                                </label>
+                            
+                                <input class="btn--primary full-width" type="submit" value="Submit">
+                            </form>
+
+                        </div>
+
+                        <div class="column large-6 tab-full">
+
+                            <h3>Alert Boxes</h3>
+
+                            <br>
+                            
+                            <div class="alert-box alert-box--error hideit">
+                                <p>Error Message. Your Message Goes Here.</p>
+                                <i class="fa fa-times alert-box__close" aria-hidden="true"></i>
+                            </div><!-- end error -->
+                                    
+                            <div class="alert-box alert-box--success hideit">
+                                <p>Success Message. Your Message Goes Here.</p>
+                                <i class="fa fa-times alert-box__close" aria-hidden="true"></i>
+                            </div><!-- end success -->
+                                    
+                            <div class="alert-box alert-box--info hideit">
+                                <p>Info Message. Your Message Goes Here.</p>
+                                <i class="fa fa-times alert-box__close" aria-hidden="true"></i>
+                            </div><!-- end info -->
+                                    
+                            <div class="alert-box alert-box--notice hideit">
+                                <p>Notice Message. Your Message Goes Here.</p>
+                                <i class="fa fa-times alert-box__close" aria-hidden="true"></i>
+                            </div><!-- end notice -->
+                        
+                        </div>
+
+                    </div> <!-- end row -->
+
+                </section> <!-- end styles -->
 
             </main>
 

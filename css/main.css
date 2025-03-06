@@ -78,9 +78,9 @@ body {
 }
 
 body {
-  background: #ECECEC;
+  background: #F9F9F9;
   font-family: "IBM Plex Sans", sans-serif;
-  font-size: 1.9rem;
+  font-size: 2rem;
   font-style: normal;
   font-weight: normal;
   line-height: 1.789;
@@ -158,7 +158,7 @@ a {
 a:hover,
 a:focus,
 a:active {
-  color: #da5260;
+  color: lightblue;
 }
 
 a:hover,
@@ -583,7 +583,7 @@ dl,
 form,
 .video-container,
 .ss-custom-select {
-  margin-bottom: 3.2rem;
+  margin-bottom: 0.5rem;
 }
 
 
@@ -2123,6 +2123,7 @@ input::-moz-focus-inner {
 @media screen and (max-width:1500px) {
   .masonry-wrap {
     max-width: 900px;
+    margin-top: 90px;
   }
 
   .listing-header {
@@ -2260,8 +2261,8 @@ input::-moz-focus-inner {
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
   width: 300px;
-  background-color: #151515;
-  padding-top: 6.4rem;
+/*  background-color: #151515;
+*/  padding-top: 6.4rem;
   padding-right: 3.2rem;
   padding-left: 4.4rem;
   overflow-y: auto;
@@ -2311,8 +2312,8 @@ input::-moz-focus-inner {
   -ms-flex-align: stretch;
   align-items: stretch;
   max-width: 100%;
-  background-color: #151515;
-  margin-top: 3.2rem;
+/*  background-color: #151515;
+*/  margin-top: 3.2rem;
 }
 
 .header__nav-wrap a {
@@ -2337,7 +2338,7 @@ input::-moz-focus-inner {
 
 .header__nav li a {
   display: block;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.75);
   line-height: 4.4rem;
 }
 
@@ -2372,7 +2373,7 @@ input::-moz-focus-inner {
 
 .header__nav li:hover > a,
 .header__nav li:focus > a {
-  color: #ffffff;
+  color: steelblue;
 }
 
 .header__nav li:hover li,
@@ -2381,7 +2382,7 @@ input::-moz-focus-inner {
 }
 
 .header__nav li.current > a {
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .header__nav li ul {
@@ -2419,7 +2420,7 @@ input::-moz-focus-inner {
 
 .header__menu-toggle:hover,
 .header__menu-toggle:focus {
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .header__menu-toggle span {
@@ -2427,7 +2428,7 @@ input::-moz-focus-inner {
   width: 16px;
   height: 2px;
   margin-top: -1px;
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.75);
   transition: all 0.5s;
   font: 0/0 a;
   text-shadow: none;
@@ -2444,7 +2445,7 @@ input::-moz-focus-inner {
   content: "";
   width: 24px;
   height: 100%;
-  background-color: inherit;
+  background-color: rgba(0, 0, 0, 0.75);
   position: absolute;
   left: 0;
   transition: all 0.5s;
@@ -2502,8 +2503,8 @@ input::-moz-focus-inner {
 
 .header__social a {
   display: block;
-  background-color: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.75);
   height: 3.6rem;
   width: 3.6rem;
   border-radius: 50%;
@@ -2812,7 +2813,7 @@ body.search-is-visible {
 
   .header__top {
     z-index: 100;
-    background: #111111;
+    background: #f9f9f9;
     width: 100%;
     height: 78px;
     position: fixed;
@@ -2836,7 +2837,7 @@ body.search-is-visible {
 
   .header__nav-wrap {
     z-index: 99;
-    background: #151515;
+    background: #f9f9f9;
     opacity: 0;
     visibility: hidden;
     position: fixed;
@@ -2997,15 +2998,15 @@ body.search-is-visible {
 .s-content,
 .s-footer {
   padding-left: 330px;
-  padding-right: 100px;
-  max-width: 2140px;
+  padding-right: 30px;
+  max-width: 1400px;
 }
 
 /* -------------------------------------------------------------------
  * ## content
  * ------------------------------------------------------------------- */
 .s-content {
-  padding-top: 6.4rem;
+  /*padding-top: 6.4rem;*/
 }
 
 .content__page {
@@ -3014,8 +3015,8 @@ body.search-is-visible {
 }
 
 .content__page img {
-  margin-top: 3.2rem;
-  margin-bottom: 3.2rem;
+  /*margin-top: 3.2rem;*/
+ /* margin-bottom: 3.2rem;*/
 }
 
 .content__page-header {
@@ -3093,6 +3094,7 @@ body.search-is-visible {
 
 .go-top.link-is-visible {
   opacity: 1;
+  margin-right: 20px;
   visibility: visible;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
@@ -3105,7 +3107,8 @@ body.search-is-visible {
 @media screen and (max-width:1600px) {
   .s-content,
   .s-footer {
-    padding-left: 320px;
+    /*padding-left: 320px;*/
+    padding-left: 250px;
   }
 
 }

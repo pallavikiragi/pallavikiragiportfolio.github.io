@@ -1,0 +1,944 @@
+    <!DOCTYPE html>
+    <html class="no-js" lang="en">
+    <head>
+
+        <!--- basic page needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <title>Standard Post - New Media</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- mobile specific metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS
+        ================================================== -->
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/vendor.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- script
+        ================================================== -->
+        <script src="js/modernizr.js"></script>
+
+        <!-- favicons
+        ================================================== -->
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <style>
+
+            .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
+            gap: 10px; /* Space between images */
+        }
+
+            .image-grid img {
+                width: 100%; /* Ensure images fill their grid cells */
+                height: auto; /* Maintain aspect ratio */
+        }
+
+        figcaption {
+      font-style: italic;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    /* Carousel container */
+    .carousel-container {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    /* Carousel slides */
+    .carousel-slide {
+        display: none;
+        position: relative;
+        text-align: center;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Caption */
+    .carousel-caption {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: grey;
+    /*    background-color: rgba(0, 0, 0, 0.5);
+    */    padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    /* Arrows */
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: grey;
+        cursor: pointer;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 8%;
+        user-select: none;
+    }
+
+    .carousel-arrow.left {
+        left: 5px;
+    }
+
+    .carousel-arrow.right {
+        right: 5px;
+    }
+
+    .carousel-arrow:hover {
+        /*background-color: rgba(0, 0, 0, 0.2);*/
+    }
+
+    /* Dots */
+    /*.carousel-dots {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .dot.active {
+        background-color: #717171;
+    }
+    */
+
+
+
+        </style>
+
+    </head>
+
+    <body class="ss-bg-white">
+
+        <!-- preloader
+        ================================================== -->
+        <div id="preloader">
+            <div id="loader" class="dots-fade">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div id="top" class="s-wrap site-wrapper">
+
+            <!-- site header
+            ================================================== -->
+            <header class="s-header header">
+
+                <div class="header__top">
+                    <div class="header__logo">
+                        <a class="site-logo" href="index.html">
+                            <img src="images/logo.svg" alt="Homepage">
+                        </a>
+                    </div>
+
+                    <div class="header__search">
+        
+                        <form role="search" method="get" class="header__search-form" action="#">
+                            <label>
+                                <span class="hide-content">Search for:</span>
+                                <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                            </label>
+                            <input type="submit" class="header__search-submit" value="Search">
+                        </form>
+            
+                        <a href="#0" title="Close Search" class="header__search-close">Close</a>
+            
+                    </div>  <!-- end header__search -->
+
+                    <!-- toggles -->
+                    <!-- <a href="#0" class="header__search-trigger"></a> -->
+                    <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+                </div>
+
+                <nav class="header__nav-wrap">
+
+                    <ul class="header__nav">
+                        <li><a href="index.html" title="">Home</a></li>
+                        <li class="has-children">
+                            <a href="#0" title="">Categories</a>
+                            <ul class="sub-menu">
+                            <li><a href="category.html">Lifestyle</a></li>
+                            <li><a href="category.html">Health</a></li>
+                            <li><a href="category.html">Family</a></li>
+                            <li><a href="category.html">Management</a></li>
+                            <li><a href="category.html">Travel</a></li>
+                            <li><a href="category.html">Work</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children current">
+                            <a href="#0" title="">Blog</a>
+                            <ul class="sub-menu">
+                            <li><a href="single-video.html">Video Post</a></li>
+                            <li><a href="single-audio.html">Audio Post</a></li>
+                            <li><a href="single-gallery.html">Gallery Post</a></li>
+                            <li><a href="single-standard.html">Standard Post</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="styles.html" title="">Styles</a></li>
+                        <li><a href="page-about.html" title="">About</a></li>
+                        <li><a href="page-contact.html" title="">Contact</a></li>
+                    </ul> <!-- end header__nav -->
+
+                    <ul class="header__social">
+                        <li class="ss-facebook">
+                            <a href="https://facebook.com/">
+                                <span class="screen-reader-text">Facebook</span>
+                            </a>
+                        </li>
+                        <li class="ss-twitter">
+                            <a href="#0">
+                                <span class="screen-reader-text">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="ss-dribbble">
+                            <a href="#0">
+                                <span class="screen-reader-text">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="ss-behance">
+                            <a href="#0">
+                                <span class="screen-reader-text">Behance</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </header> <!-- end s-header -->
+
+
+            <!-- site content
+            ================================================== -->
+            <div class="s-content content">
+                <main class="row content__page">
+                    
+                    <article class="column large-full entry format-standard">
+
+                        <div class="media-wrap entry__media">
+                            <div class="entry__post-thumb">
+                                <img src="images/newmedia/cover1.png" 
+                                     srcset="images/newmedia/cover1.png 2000w, 
+                                             images/newmedia/cover1.png 1000w, 
+                                             images/newmedia/cover1.png 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content__page-header entry__header">
+                            <h1 class="display-1 entry__title">
+                            Cyberculture in Airports
+                            </h1>
+                            <ul class="entry__header-meta">
+                                <!--<li class="author">By <a href="#0">Jonathan Doe</a></li> -->
+                                <li class="date">May 2023</li>
+                                <li class="cat-links">
+                                    <a href="#0">Multimedia, Data visualization</a><a href="#0">Touchdesigner, AR/VR, UX Study</a>
+                                </li>
+                            </ul>
+                        </div> <!-- end entry__header -->
+
+                        <div class="entry__content">
+
+                            <p class="lead drop-cap">
+                            This project explores generative design through computational processes, creating diverse design options within the context of new media and airport operations. By examining cyberculture and stakeholder dynamics, it highlights how digital networks shape travel experiences. Research included site visits, case studies, interviews with passengers and employees, and firsthand observations of airport systems, complemented by insights from a Heathrow Airport documentary. These methods provided a comprehensive understanding of operational challenges, laying the foundation for innovative solutions in airport environments.
+                            </p>
+
+                            <h1 id="objective">Objective</h1>
+
+                            <p>
+
+                            The project aims to merge new media creation with prototyping tools to develop micro-outputs addressing common airport challenges. Recognizing the learning curves in prototyping and system ideation, the approach focuses on Conceptual Prototyping—testing purposeful interactions within complex systems. This exploration reflects my philosophy of experimenting with redundant systems, using the complexity of airports as an opportunity for creative disruption. It also serves as preparation for industry readiness post-graduation. By integrating these methods, the project seeks to transform complexity into actionable, creative solutions. The process involves:
+
+                            <ul>
+                                <li>Research and Exploration: Investigating stages, stakeholders, and potential interventions to simplify operations.</li>
+                                <li>Structured Timeline: A month-long exploratory study (March) followed by problem-solving and model creation (April).</li>
+                                <li>Engagement and Testing: Conducting primary and secondary research, airport visits, passenger and employee interviews, prototyping, and mapping travel flows from multiple perspectives.</li>
+                            </ul>
+
+                            </p>
+
+                            <p style="margin-top: 3.2rem;">
+                                <img src="images/newmedia/o1.png" 
+                                     srcset="images/newmedia/o1.png 2000w, 
+                                             images/newmedia/o1.png 1000w, 
+                                             images/newmedia/o1.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                            <div class="image-grid">
+                                <img src="images/newmedia/o2.png" 
+                                     srcset="images/newmedia/o2.png 2000w, 
+                                             images/newmedia/o2.png 1000w, 
+                                             images/newmedia/o2.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/o3.png" 
+                                     srcset="images/newmedia/o3.png 2000w, 
+                                             images/newmedia/o3.png 1000w, 
+                                             images/newmedia/o3.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+
+                            </p>
+
+                            <h3>Context Mapping</h3>
+
+                            <p style="margin-top: 3.2rem;">
+                            <img src="images/newmedia/13.png" 
+                                     srcset="images/newmedia/13.png 2000w, 
+                                             images/newmedia/13.png 1000w, 
+                                             images/newmedia/13.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+
+                            <div class="image-grid">
+                                <img src="images/newmedia/15.png" 
+                                     srcset="images/newmedia/15.png 2000w, 
+                                             images/newmedia/15.png 1000w, 
+                                             images/newmedia/15.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/17.png" 
+                                     srcset="images/newmedia/17.png 2000w, 
+                                             images/newmedia/17.png 1000w, 
+                                             images/newmedia/17.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+                            </p>
+        
+                            <h3>User Research</h3>
+
+                            <p style="margin-top: 3.2rem;">
+                            <img src="images/newmedia/20.png" 
+                                     srcset="images/newmedia/20.png 2000w, 
+                                             images/newmedia/20.png 1000w, 
+                                             images/newmedia/20.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </p>
+
+                            <h5>Primary Research</h5>
+
+                            <div class="image-grid">
+                                <img src="images/newmedia/23.png" 
+                                     srcset="images/newmedia/23.png 2000w, 
+                                             images/newmedia/23.png 1000w, 
+                                             images/newmedia/23.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/27.png" 
+                                     srcset="images/newmedia/27.png 2000w, 
+                                             images/newmedia/27.png 1000w, 
+                                             images/newmedia/27.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/28.png" 
+                                     srcset="images/newmedia/28.png 2000w, 
+                                             images/newmedia/28.png 1000w, 
+                                             images/newmedia/28.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/29.png" 
+                                     srcset="images/newmedia/29.png 2000w, 
+                                             images/newmedia/29.png 1000w, 
+                                             images/newmedia/29.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+
+                            <h5>Secondary Research</h5>
+
+                            <div class="image-grid">
+                                <img src="images/newmedia/32.png" 
+                                     srcset="images/newmedia/32.png 2000w, 
+                                             images/newmedia/32.png 1000w, 
+                                             images/newmedia/32.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/33.png" 
+                                     srcset="images/newmedia/33.png 2000w, 
+                                             images/newmedia/33.png 1000w, 
+                                             images/newmedia/33.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/34.png" 
+                                     srcset="images/newmedia/34.png 2000w, 
+                                             images/newmedia/34.png 1000w, 
+                                             images/newmedia/34.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/35.png" 
+                                     srcset="images/newmedia/35.png 2000w, 
+                                             images/newmedia/35.png 1000w, 
+                                             images/newmedia/35.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/36.png" 
+                                     srcset="images/newmedia/36.png 2000w, 
+                                             images/newmedia/36.png 1000w, 
+                                             images/newmedia/36.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/37.png" 
+                                     srcset="images/newmedia/37.png 2000w, 
+                                             images/newmedia/37.png 1000w, 
+                                             images/newmedia/37.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/40.png" 
+                                     srcset="images/newmedia/40.png 2000w, 
+                                             images/newmedia/40.png 1000w, 
+                                             images/newmedia/40.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/48.png" 
+                                     srcset="images/newmedia/48.png 2000w, 
+                                             images/newmedia/48.png 1000w, 
+                                             images/newmedia/48.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+
+                            <h1 id="objective">Narrowing Outputs</h1>
+
+                            <p>
+
+                            My aim was to rekindle a sense of wonder through technology, foster engagement with tools, and manage evolving expectations. Viewing the airport as the interface between passengers and airlines, I recognized that airline customers inherently become the airport's customers. I explored the innovative applications of new media in visual communication, focusing on visual expression through information technology (IT), flexible layouts, diverse transmission modes, and interactive integration.
+
+                            The Micro-Outputs of this project include <b>AI widgets, Flight Tracker installation, Multimedia kiosks, and Hologram signage</b>. Together, these elements embody cyberculture principles by leveraging the internet and data as technology, introducing creative and collaborative tools, shaping new social contexts, and serving as mediums of communication.
+
+                            </p>
+                            <p style="margin-top: 3.2rem;">
+                                <div class="image-grid">
+                                <img src="images/newmedia/41.png" 
+                                     srcset="images/newmedia/41.png 2000w, 
+                                             images/newmedia/41.png 1000w, 
+                                             images/newmedia/41.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/45.png" 
+                                     srcset="images/newmedia/45.png 2000w, 
+                                             images/newmedia/45.png 1000w, 
+                                             images/newmedia/45.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                                </div>
+                            </p>
+
+                                <h5>Concept Maps</h5>
+
+
+                                <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/42.png" 
+                                     srcset="images/newmedia/42.png 2000w, 
+                                             images/newmedia/42.png 1000w, 
+                                             images/newmedia/42.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/43.png" 
+                                     srcset="images/newmedia/43.png 2000w, 
+                                             images/newmedia/43.png 1000w, 
+                                             images/newmedia/43.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                                </div>
+                                <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/44.png" 
+                                     srcset="images/newmedia/44.png 2000w, 
+                                             images/newmedia/44.png 1000w, 
+                                             images/newmedia/44.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                            </div>
+
+                            <h2 id="objective">Outcome 1: Flight Tracker Installation</h2>
+
+                            <p>
+
+                            A flight tracking installation uses a spherical Earth projection with markers to display live flight locations. Passengers can scan their boarding passes to access real-time flight details, including route, status, and gate information, enhanced with AR technology for interactive viewing. Projected on walls or floors, the installation is adjustable via external controls, such as a MIDI keyboard. By visualizing complex data, it optimizes operations, enhances passenger experiences, and fosters engagement, embodying cyberculture principles of using data as a creative and collaborative tool.
+
+                            </p>
+
+                            <p style="margin-top: 3.2rem;">
+
+                            <div class="image-grid">
+                                <img src="images/newmedia/55.png" 
+                                     srcset="images/newmedia/55.png 2000w, 
+                                             images/newmedia/55.png 1000w, 
+                                             images/newmedia/55.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/56.png" 
+                                     srcset="images/newmedia/56.png 2000w, 
+                                             images/newmedia/56.png 1000w, 
+                                             images/newmedia/56.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/57.png" 
+                                     srcset="images/newmedia/57.png 2000w, 
+                                             images/newmedia/57.png 1000w, 
+                                             images/newmedia/57.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/58.png" 
+                                     srcset="images/newmedia/58.png 2000w, 
+                                             images/newmedia/58.png 1000w, 
+                                             images/newmedia/58.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+                            </p>
+
+                            <iframe src="https://drive.google.com/file/d/1bq-v4ahktaK37X2-l4w5lxImkinVf-4k/preview" width="100%" height="900" allow="autoplay" style="width: 900px; height:500px;margin-top: 2rem;" class=""></iframe>
+                            <figcaption>Data Visualization of live flight tracking to be projected in airports</figcaption>
+
+                            <h2 id="objective">Outcome 2: Crowd Circles</h2>
+
+                            <p>
+
+                            A projected installation with physical poles and circular floor projections enhances crowd optimization in airports, reducing disorientation and anxiety during delays or disruptions. The poles serve as landmarks for queue management, while projected circles act as tangible boundaries, dynamically adjusted using a MIDI keyboard to guide passenger movement.
+
+                            Color-coded projections (red, yellow, green) indicate crowd density, ensuring passengers can reorient themselves and avoid congestion. By improving flow, monitoring occupancy, and creating organized spaces, this system fosters safety, efficiency, and comfort, providing a structured social context within tangible bounds.
+
+                            </p>
+
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/59.png" 
+                                     srcset="images/newmedia/59.png 2000w, 
+                                             images/newmedia/59.png 1000w, 
+                                             images/newmedia/59.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/60.png" 
+                                     srcset="images/newmedia/60.png 2000w, 
+                                             images/newmedia/60.png 1000w, 
+                                             images/newmedia/60.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+
+
+                            <h2 id="objective">Outcome 3: Air Widgets</h2>
+
+                            <p>
+
+                            Widgets enhance the travel experience by providing quick, convenient access to essential information and services. With user-friendly interfaces, passengers can easily receive real-time flight updates, gate changes, baggage details, and personalized notifications on their devices, ensuring seamless and informed decision-making.
+
+                            Interactive wayfinding widgets also offer guidance on airport amenities, dining, shopping, and time management, streamlining navigation for a hassle-free journey to your destination.
+
+
+                            </p>
+
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/621.png" 
+                                     srcset="images/newmedia/621.png 2000w, 
+                                             images/newmedia/621.png 1000w, 
+                                             images/newmedia/621.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/63.png" 
+                                     srcset="images/newmedia/63.png 2000w, 
+                                             images/newmedia/63.png 1000w, 
+                                             images/newmedia/63.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/65.png" 
+                                     srcset="images/newmedia/65.png 2000w, 
+                                             images/newmedia/65.png 1000w, 
+                                             images/newmedia/65.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/66.png" 
+                                     srcset="images/newmedia/66.png 2000w, 
+                                             images/newmedia/66.png 1000w, 
+                                             images/newmedia/66.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+                            <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/67.png" 
+                                     srcset="images/newmedia/67.png 2000w, 
+                                             images/newmedia/67.png 1000w, 
+                                             images/newmedia/67.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/68.png" 
+                                     srcset="images/newmedia/68.png 2000w, 
+                                             images/newmedia/68.png 1000w, 
+                                             images/newmedia/68.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                            </div>
+
+                            <h5>Concept Maps</h5>
+
+
+                                <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/46.png" 
+                                     srcset="images/newmedia/46.png 2000w, 
+                                             images/newmedia/46.png 1000w, 
+                                             images/newmedia/46.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/47.png" 
+                                     srcset="images/newmedia/47.png 2000w, 
+                                             images/newmedia/47.png 1000w, 
+                                             images/newmedia/47.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                                </div>
+                                
+
+                            <h3>Widget Library</h3>
+
+                            <img src="images/newmedia/Output 3.png" 
+                                 srcset="images/newmedia/Output 3.png 2000w, 
+                                         images/newmedia/Output 3.png 1000w, 
+                                         images/newmedia/Output 3.png 500w" 
+                                         sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+
+                            <div class="carousel-container" id="widget">
+                            <!-- Slides -->
+                            <div class="carousel-slide">
+                                <img src="images/newmedia/49.png" alt="Image 1">
+                                <div class="carousel-caption">1 / 5</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/newmedia/50.png" alt="Image 2">
+                                <div class="carousel-caption">2 / 5</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/newmedia/51.png" alt="Image 3">
+                                <div class="carousel-caption">3 / 5</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/newmedia/52.png" alt="Image 4">
+                                <div class="carousel-caption">4 / 5</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/newmedia/53.png" alt="Image 5">
+                                <div class="carousel-caption">5 / 5</div>
+                            </div>
+
+                            <!-- Arrows -->
+                            <a class="carousel-arrow left" onclick="changeSlide(-1, 0)">&#10094;</a>
+                            <a class="carousel-arrow right" onclick="changeSlide(1, 0)">&#10095;</a>
+
+                        </div>
+
+                        <!-- Dots -->
+                        <!-- <div class="carousel-dots">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div> -->
+
+        
+                        <h3>Mobile Prototype</h3>
+
+                        <div class="carousel-container" id="mobile">
+                            <!-- Slides -->
+                        <div class="carousel-slide">
+                        <img src="images/newmedia/PS1.png" alt="Image 1">
+                        <div class="carousel-caption">1 / 2</div>
+                        </div>
+                        <div class="carousel-slide">
+                        <img src="images/newmedia/PS2.png" alt="Image 2">
+                        <div class="carousel-caption">2 / 2</div>
+                        </div>
+
+                        <!-- Arrows -->
+                        <a class="carousel-arrow left" onclick="changeSlide(-1, 1)">&#10094;</a>
+    <a class="carousel-arrow right" onclick="changeSlide(1, 1)">&#10095;</a>
+
+                        </div> <!-- Missing closing tag added here -->
+
+
+                        <h3>AI Widgets</h3>
+
+                        <img src="images/newmedia/71.png" 
+                                 srcset="images/newmedia/71.png 2000w, 
+                                         images/newmedia/71.png 1000w, 
+                                         images/newmedia/71.png 500w" 
+                                         sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/72.png" 
+                                     srcset="images/newmedia/72.png 2000w, 
+                                             images/newmedia/72.png 1000w, 
+                                             images/newmedia/72.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/73.png" 
+                                     srcset="images/newmedia/73.png 2000w, 
+                                             images/newmedia/73.png 1000w, 
+                                             images/newmedia/73.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <h5>Sample Interface</h5>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/75.png" 
+                                     srcset="images/newmedia/75.png 2000w, 
+                                             images/newmedia/75.png 1000w, 
+                                             images/newmedia/75.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/76.png" 
+                                     srcset="images/newmedia/76.png 2000w, 
+                                             images/newmedia/76.png 1000w, 
+                                             images/newmedia/76.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/77.png" 
+                                     srcset="images/newmedia/77.png 2000w, 
+                                             images/newmedia/77.png 1000w, 
+                                             images/newmedia/77.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/78.png" 
+                                     srcset="images/newmedia/78.png 2000w, 
+                                             images/newmedia/78.png 1000w, 
+                                             images/newmedia/78.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <h3>Usability Test and Responses</h3>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/79.png" 
+                                     srcset="images/newmedia/79.png 2000w, 
+                                             images/newmedia/79.png 1000w, 
+                                             images/newmedia/79.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/80.png" 
+                                     srcset="images/newmedia/80.png 2000w, 
+                                             images/newmedia/80.png 1000w, 
+                                             images/newmedia/80.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <div style="margin-top: 1.2rem;"class="image-grid">
+                                <img src="images/newmedia/81.png" 
+                                     srcset="images/newmedia/81.png 2000w, 
+                                             images/newmedia/81.png 1000w, 
+                                             images/newmedia/81.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 1">
+                                
+                                <img src="images/newmedia/82.png" 
+                                     srcset="images/newmedia/82.png 2000w, 
+                                             images/newmedia/82.png 1000w, 
+                                             images/newmedia/82.png 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="Image 2">
+                        </div>
+
+                        <h1 id="objective">Key Learnings & Reflections</h1>
+
+                            <p>
+
+                            <ul>
+                                <li>Exploration and Ambition: The project pushed me to explore new communication mediums and manage time effectively within a tight timeline. While ambitious, narrowing focus was challenging due to diverse opportunities and technologies.</li>
+                                <li>Context and Direction: Confidently selecting new media and airports allowed experimentation with systems and cyberculture, though integrating outputs with context required substantial ideation and iteration.</li>
+                                <li>Challenges and Growth: Conducting surveys and interviews onsite was outside my comfort zone but essential. Multiple prototypes were necessary to achieve project goals despite calls to simplify.</li>
+                                <li>Technology and Testing: Exploring tools helped shape outputs, and testing validated learnability and proof of concept, creating a wholesome, impactful project.</li>
+                            </ul>
+
+                            <b>Future Goal:</b> I aim to create more functional prototypes and secure permissions to implement installations at airports. This project deepened my understanding of technology’s potential and its role in creating meaningful experiences, a perspective I intend to carry forward in future projects.
+
+
+                            </p>
+
+
+
+
+
+
+
+                           
+
+
+                            <p class="entry__tags">
+                                <span>Post Tags</span>
+            
+                                <span class="entry__tag-list">
+                                    <a href="#0">orci</a>
+                                    <a href="#0">lectus</a>
+                                    <a href="#0">varius</a>
+                                    <a href="#0">turpis</a>
+                                </span>
+                
+                            </p>
+                        </div> <!-- end entry content -->
+
+                        <div class="entry__pagenav">
+                            <div class="entry__nav">
+                                <div class="entry__prev">
+                                    <a href="#0" rel="prev">
+                                        <span>Previous Post</span>
+                                        Tips on Minimalist Design 
+                                    </a>
+                                </div>
+                                <div class="entry__next">
+                                    <a href="#0" rel="next">
+                                        <span>Next Post</span>
+                                        Less Is More 
+                                    </a>
+                                </div>
+                            </div>
+                        </div> <!-- end entry__pagenav -->
+
+                        <div class="entry__related">
+                            <h3 class="h2">Related Articles</h3>
+
+                            <ul class="related">
+                                <li class="related__item">
+                                    <a href="single-standard.html" class="related__link">
+                                        <img src="images/thumbs/masonry/walk-600.jpg" alt="">
+                                    </a>
+                                    <h5 class="related__post-title">Using Repetition and Patterns in Photography.</h5>
+                                </li>
+                                <li class="related__item">
+                                    <a href="single-standard.html" class="related__link">
+                                        <img src="images/thumbs/masonry/dew-600.jpg" alt="">
+                                    </a>
+                                    <h5 class="related__post-title">Health Benefits Of Morning Dew.</h5>
+                                </li>
+                                <li class="related__item">
+                                    <a href="single-standard.html" class="related__link">
+                                        <img src="images/thumbs/masonry/rucksack-600.jpg" alt="">
+                                    </a>
+                                    <h5 class="related__post-title">The Art Of Visual Storytelling.</h5>
+                                </li>
+                            </ul>
+                        </div> <!-- end entry related -->
+
+                    </article> <!-- end column large-full entry-->
+
+
+                        <!-- <div class="column large-12 comment-respond"> -->
+
+                            <!-- START respond -->
+                            <!-- <div id="respond"> -->
+                
+                                <!-- <h3 class="h2">Add Comment</h3>
+                
+                                <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
+                                    <fieldset> -->
+                
+                                        <!-- <div class="form-field">
+                                            <input name="cName" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
+                                        </div>
+                
+                                        <div class="form-field">
+                                            <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email" value="" type="text">
+                                        </div>
+                
+                                        <div class="form-field">
+                                            <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value="" type="text">
+                                        </div>
+                
+                                        <div class="message form-field">
+                                            <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
+                                        </div>
+                
+                                        <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Add Comment" type="submit">
+                
+                                    </fieldset> -->
+                                <!-- </form> --> <!-- end form -->
+                
+                           <!--  </div> -->
+                            <!-- END respond-->
+                
+                        <!-- </div> --> <!-- end comment-respond -->
+                
+                    <!-- </div> --> <!-- end comments-wrap -->
+                </main>
+
+            </div> <!-- end s-content -->
+
+
+            <!-- footer
+            ================================================== -->
+            <footer class="s-footer footer">
+                <div class="row">
+                    <div class="column large-full footer__content">
+                        <div class="footer__copyright">
+                            <span>© Copyright Typerite 2019</span> 
+                            <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                </div>
+            </footer>
+
+        </div> <!-- end s-wrap -->
+
+
+        <!-- Java Script
+        ================================================== -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+      // Store indexes for multiple carousels
+const carousels = document.querySelectorAll(".carousel-container");
+const carouselIndexes = Array.from(carousels).map(() => 0);
+
+function changeSlide(n, carouselIndex) {
+    carouselIndexes[carouselIndex] += n;
+    showCarousel(carouselIndexes[carouselIndex], carouselIndex);
+}
+
+function showCarousel(n, carouselIndex) {
+    const carousel = carousels[carouselIndex];
+    const slides = carousel.querySelectorAll(".carousel-slide");
+
+    // Wrap around the slide index
+    if (n >= slides.length) carouselIndexes[carouselIndex] = 0;
+    if (n < 0) carouselIndexes[carouselIndex] = slides.length - 1;
+
+    // Hide all slides in this carousel
+    slides.forEach((slide) => (slide.style.display = "none"));
+
+    // Show the current slide
+    slides[carouselIndexes[carouselIndex]].style.display = "block";
+}
+
+// Initialize all carousels
+carousels.forEach((_, index) => showCarousel(0, index));
+
+        </script>
+    </body>

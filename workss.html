@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Standard Post - New Media</title>
+    <title>Work Experience</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -29,6 +29,300 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto auto auto;
+            gap: 15px;
+            max-width: 1200px;
+            width: 100%;
+             margin-top: 20px;
+      margin-bottom: 70px; 
+        }
+
+        /* First Main Row */
+        .row-1 {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: 15px;
+        }
+
+        .row-1 .item-1 {
+            /* height: 300px; */
+        }
+
+        .row-1 .item-2 {
+            /* height: 300px; */
+        }
+
+        /* Second Main Row */
+        .row-2 {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: 15px;
+        }
+
+        .row-2 .col-1 {
+            display: grid;
+            grid-template-rows: 33% 30%;
+            gap: 15px;
+        }
+
+        .row-2 .col-2 {
+            display: grid;
+            grid-template-rows: 20% 43%;
+            gap: 15px;
+        }
+
+        .row-2 .col-2 .row-2-2 {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: 15px;
+        }
+
+        .row-2 .col-2 .row-2-2 .item-6 {
+            grid-row: span 2;
+            /* Extends beyond the row */
+        }
+
+        /* Make item-8 extend to fill the height of the column */
+        .row-2 .col-2 .row-2-2 .item-8 {
+            height: 100%;
+            display: flex;
+            align-items: stretch;
+        }
+
+        
+        .masonry-item {
+            /*background-color: #ddd;*/
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(-100px);
+            /* Start from left or right based on condition */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            position: relative;
+            text-align: center;
+/*             padding: 20px; 
+*/        }
+
+        .masonry-item.show {
+            opacity: 1;
+            transform: translateX(0);
+            border-radius: 20px;
+        }
+
+        .masonry-item-right {
+            transform: translateX(100px);
+            /* Items from the right side */
+        }
+
+        .masonry-item-left {
+            transform: translateX(-100px);
+            /* Items from the left side */
+        }
+
+        .masonry-item-bottom {
+            transform: translateY(100px);
+            /* Item 6 comes from the bottom */
+        }
+
+        .masonry-item-bottom.show {
+            transform: translateY(0);
+            /* Ends at its normal position */
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.95;
+            transition: opacity 0.3s;
+        }
+
+        .masonry-item:hover img {
+            opacity: 0.3;
+            /* Dims image on hover */
+        }
+
+        .masonry-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            display: grid;
+        }
+
+        .masonry-item .arrow-icon {
+            color: #ffffff;
+            margin-left: 10px;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .masonry-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .masonry-item:hover .arrow-icon {
+            transform: translateX(10px);
+            /* Moves arrow icon slightly to the right on hover */
+        }
+
+        .overlay-text {
+            display: block;
+            align-items: center;
+        }
+
+        .h1 {
+            font-size: 26px;
+            margin: 0px;
+            color: white;
+            text-align: left;
+            padding-left: 25px;
+            padding-bottom: 20px;
+        }
+        .h5 {
+            font-size: 12px;
+            margin: 0px;
+            color: white;
+            text-align: left;
+            padding-left: 25px;
+            padding-bottom: 20px;
+        }
+
+        .span p {
+            text-align: left;
+            padding-left: 25px;
+            font-size: 15px;
+            line-height: 18px;
+            padding-right: 10px;
+            margin-bottom: 0px;
+        }
+
+        /* Container to hold masonry items */
+        .masonry-container {
+            column-count: 3;
+            /* Number of columns */
+            column-gap: 15px;
+            /* Space between columns */
+            display: block;
+        }
+
+        /* Each masonry item */
+        .masonry-item {
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            /*margin-bottom: 15px;*/
+            /* Space between rows */
+            break-inside: avoid;
+            /* Avoid splitting items across columns */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image styling inside masonry items */
+        .masonry-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hover effect for images */
+        .masonry-item:hover img {
+            opacity: 0.8;
+        }
+
+        .masonry-item:hover {
+            transform: translateY(-10px);
+            /* Adds hover effect */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-rows: auto auto;
+            }
+
+            .row-1,
+            .row-2,
+            .row-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .row-1 {
+                grid-template-columns: 1fr;
+                /* Stack columns vertically */
+            }
+
+            .row-2 {
+                grid-template-columns: 1fr;
+                /* Stack columns vertically */
+            }
+
+            .row-2 .col-1,
+            .row-2 .col-2 {
+                grid-template-rows: auto;
+            }
+
+            .row-2 .col-2 .row-2-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .masonry-item {
+                margin-bottom: 10px;
+            }
+
+            .row-3 {
+                margin-top: 0;
+            }
+        }
+
+        .two-column-layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin-top: 30px;
+        /*margin: 30px auto;*/
+        gap: 20px; /* Space between columns */
+        }
+
+        .column {
+        flex: 1;
+        padding: 8px;
+        /*background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+        }
+
+        .column h2 {
+        font-size: 1.5em;
+        margin-top: 10px;
+        }
+
+        .column p {
+        font-size: 0.8em;
+        line-height: 1.6;
+        color: #333;
+        }
+    </style>
 
 </head>
 
@@ -72,8 +366,8 @@
                 </div>  <!-- end header__search -->
 
                 <!-- toggles -->
-                <a href="#0" class="header__search-trigger"></a>
-                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+<!--                 <a href="#0" class="header__search-trigger"></a>
+ -->                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
 
             </div>
 
@@ -134,223 +428,165 @@
         </header> <!-- end s-header -->
 
 
-        <!-- site content
-        ================================================== -->
-        <div class="s-content content">
-            <main class="row content__page">
-                
-                <article class="column large-full entry format-standard">
+        
 
-                    <div class="media-wrap entry__media">
-                        <div class="entry__post-thumb">
-                            <img src="images/newmedia/cover1.png" 
-                                 srcset="images/newmedia/cover1.png 2000w, 
-                                         images/newmedia/cover1.png 1000w, 
-                                         images/newmedia/cover1.png 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+<div class="s-content">
+
+    <div class="two-column-layout">
+    <div class="column">
+        <h2>Work Experience</h2>
+    </div>
+    <div class="column">
+        
+        <p>These companies and studios offered practical training that bridged my academic knowledge with real-world applications. Collaborating with industry professionals gave me valuable insights into real-world challenges and opportunities, enhancing my understanding of the field.</p>
+        
+    </div>
+</div>
+
+                <div class="masonry-wrap">
+
+                    <div class="grid-container">
+                        <!-- Row 1 -->
+                        <div class="row-1">
+                            <div class="masonry-item item-1 masonry-item-left">
+                                <img src="images\covers\imx.jpg" alt="Image 1">
+                                <div class="overlay">
+                                    <div class="overlay-text">
+                                        <h1 class="h1">IMMERSIONX TECHNOLOGIES</h1>
+                                        <h5 color="white">May 2024 - November 2024</h5>
+                                        <span class="span">
+                                            <p>During my time at IMX , I focused on working with client projects, conducting internal explorations, and experimenting with various technologies. I worked on fulfilling client requirements, utilizing various software tools and techniques to create assets and product displays.</p>
+                                        </span>
+
+                                    </div>
+                                    <div class="overlay-text">
+                                        
+                                        <a href=""> <span class="arrow-icon">→</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry-item item-2 masonry-item-right">
+                                <img src="images\covers\ime.jpg" alt="Image 2">
+                                <div class="overlay">
+                                    <div class="overlay-text">
+                                        <h1 class="h1" style="
+                                        padding-top: 20px;">INDIAN MUSIC EXPERIENCE MUSEUM</h1>
+                                        <h5 color="white">June 2023 - February 2024</h5>
+                                        <span class="span">
+                                            <p> At the museum, I actively engaged in the critical role of evaluating and refining exhibit spaces and interactive elements. I delved into the intricacies of designing diverse visitor experiences, considering factors such as mediums, spatial arrangements, and contextual relevance.</p>
+                                        </span>
+
+                                    </div>
+                                    <div class="overlay-text">
+                                        
+                                        <a href=""> <span class="arrow-icon">→</span></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
+
+                            <!-- Row - 2 -->
+
+                        <div class="row-2">
+                            <div class="masonry-item item-1 masonry-item-left">
+                                <img src="images\covers\ziroh.png" alt="Image 1">
+                                <div class="overlay">
+                                    <div class="overlay-text">
+                                        <h1 class="h1">ZIROH LABS</h1>
+                                        <h5 color="white">June 2022 - August 2022</h5>
+                                        <span class="span">
+                                            <p>Ziroh Labs is an innovative driven Deep-tech startup that builds privacy enhancing products and solutions. I focused on buidling a drive or database for academic institutions, desigining teams, dashboard interfaces and navigation on website as well brainstorm on a new product launch.</p>
+                                        </span>
+
+                                    </div>
+                                    <div class="overlay-text">
+                                        
+                                        <a href=""> <span class="arrow-icon">→</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry-item item-2 masonry-item-right">
+                                <img src="images\covers\solruf.jpg" alt="Image 2">
+                                <div class="overlay">
+                                    <div class="overlay-text">
+                                        <h1 class="h1" style="
+                                        padding-top: 20px;
+                                    ">SOLRUF India Private Ltd.</h1>
+                                    <h5 color="white">June 2021 - August 2021</h5>
+                                        <span class="span">
+                                            <p>Solruf is a marketplace and installation platform to provide solar energy applications in homes and buildings. My contribution was building the e-commerce website on the web and app. Using visual cues and informative descriptions can give the user balance needed to comprehend visual and text data.</p>
+                                        </span>
+
+                                    </div>
+                                    <div class="overlay-text">
+                                        <a href=""> <span class="arrow-icon">→</span></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="content__page-header entry__header">
-                        <h1 class="display-1 entry__title">
-                        Cyberculture in Airports
-                        </h1>
-                        <ul class="entry__header-meta">
-                            <!--<li class="author">By <a href="#0">Jonathan Doe</a></li> -->
-                            <li class="date">May 2023</li>
-                            <li class="cat-links">
-                                <a href="#0">Multimedia, Data visualization</a><a href="#0">Touchdesigner, AR/VR, UX Study</a>
-                            </li>
-                        </ul>
-                    </div> <!-- end entry__header -->
 
-                    <div class="entry__content">
-
-                        <p class="lead drop-cap">
-                        These projects delve into generative concepts that utilize computational processes to generate a range of design options, while also considering context. This methodology is employed to evaluate and explore variations and experimentations within the framework of new media design, which encompasses a universal interconnected network of audio, video, and electronic text communications. 
-                        </p>
-
-                        <p>
-                        This thesis introduced me to tools and technologies in the realm of new media and computational development, the influence of each subject New media, cyberculture, and airport stakeholders. It served as a context for airport operations and management, involving passengers and employees, thereby forming a paradigm of cyberculture where each aspect facilitates digital networks and social shaping technologies. Some of the methods I followed were predominantly site visits and case studies, interviewing employees and passengers on their perspectives of travel and management. I also watched a documentary on one of the busiest and oldest airports, London's Heathrow which gave a lot of insights into operations and travel in and out of the airport. The site visits were observation visits on types of machines available, stakeholders' activity, and even booked a flight to Kochi to understand the insides of the airport.
-                        </p>
-
-                        <p>
-                        <img src="images/newmedia/13.png" 
-                             srcset="images/newmedia/13.png 2000w, 
-                                     images/newmedia/13.png 1000w, 
-                                     images/newmedia/13.png 500w" 
-                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
-                        </p>
-
-                        <h2>Project Brief</h2>
-    
-                        <p>Business strategies for product and service industries differ significantly, requiring tailored approaches for each. Merely applying advanced technologies like big data, artificial intelligence, cloud computing, cybersecurity, blockchain, the Internet of Things, digital marketing, 3D printing, drones, robots, virtual reality, and augmented reality does not ensure business success. While humans seek technological disruption, it is crucial to consider whether these innovations align with human interests and promote empathy. There is a growing concern about what is being lost in the race for technological advancement. This project aims to understand these dynamics through case studies of disruptive technological experiences in various models.
-                        </p>
-    
-                        
-    
-                       
-    
-                        
+                </div> <!-- end masonry-wrap -->
 
 
 
+            </div> <!-- end s-content -->
 
 
-
-
-                        <h3>Outcomes</h3>
-    
-                        <p>
-                        My goal was to recreate the sense of wonder with technology, facilitate engagement towards tools and manage runaway expectations. I see the airport as the interface between passengers and airlines therefore airline customers become the airport's customers. I examined the role of innovative applications of new media in visual communication by considering visual expression design with information technology (IT), flexible layout, diversified modes of transmission, and interactivity of integration. My micro-outputs include AI widgets, Flight tracker installation, multimedia kiosks, and hologram signages. These 4 co-exhibit cyberculture principles of using the internet and data as a form of technology, new creative and collaborative tools, a new social context and a medium of communication.
-                        </p>
-
-                        <iframe src="https://drive.google.com/file/d/1bq-v4ahktaK37X2-l4w5lxImkinVf-4k/preview" width="100%" height="900" allow="autoplay" style="width: 800px; height:500px;" class=""></iframe>
-                        <p><i>Data Visualization of live flight tracking to be projected in airports
-</p></i>
-
-                        <h3>Widget Library</h3>
-
-                        <img src="images/newmedia/Output 3.png" 
-                             srcset="images/newmedia/Output 3.png 2000w, 
-                                     images/newmedia/Output 3.png 1000w, 
-                                     images/newmedia/Output 3.png 500w" 
-                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
-    
-        
-                        <p>
-                        Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque 
-                        corrupti dolores et quas molestias excepturi sint occaecati cupiditate non provident, 
-                        similique sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam 
-                        venenatis vestibulum. Nulla vitae elit libero, a pharetra augue laboris in sit minim 
-                        cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing 
-                        in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
-                        </p>
-
-
-                        <p class="entry__tags">
-                            <span>Post Tags</span>
-        
-                            <span class="entry__tag-list">
-                                <a href="#0">orci</a>
-                                <a href="#0">lectus</a>
-                                <a href="#0">varius</a>
-                                <a href="#0">turpis</a>
-                            </span>
-            
-                        </p>
-                    </div> <!-- end entry content -->
-
-                    <div class="entry__pagenav">
-                        <div class="entry__nav">
-                            <div class="entry__prev">
-                                <a href="#0" rel="prev">
-                                    <span>Previous Post</span>
-                                    Tips on Minimalist Design 
-                                </a>
-                            </div>
-                            <div class="entry__next">
-                                <a href="#0" rel="next">
-                                    <span>Next Post</span>
-                                    Less Is More 
-                                </a>
-                            </div>
-                        </div>
-                    </div> <!-- end entry__pagenav -->
-
-                    <div class="entry__related">
-                        <h3 class="h2">Related Articles</h3>
-
-                        <ul class="related">
-                            <li class="related__item">
-                                <a href="single-standard.html" class="related__link">
-                                    <img src="images/thumbs/masonry/walk-600.jpg" alt="">
-                                </a>
-                                <h5 class="related__post-title">Using Repetition and Patterns in Photography.</h5>
-                            </li>
-                            <li class="related__item">
-                                <a href="single-standard.html" class="related__link">
-                                    <img src="images/thumbs/masonry/dew-600.jpg" alt="">
-                                </a>
-                                <h5 class="related__post-title">Health Benefits Of Morning Dew.</h5>
-                            </li>
-                            <li class="related__item">
-                                <a href="single-standard.html" class="related__link">
-                                    <img src="images/thumbs/masonry/rucksack-600.jpg" alt="">
-                                </a>
-                                <h5 class="related__post-title">The Art Of Visual Storytelling.</h5>
-                            </li>
-                        </ul>
-                    </div> <!-- end entry related -->
-
-                </article> <!-- end column large-full entry-->
-
-
-                    <div class="column large-12 comment-respond">
-
-                        <!-- START respond -->
-                        <div id="respond">
-            
-                            <h3 class="h2">Add Comment</h3>
-            
-                            <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
-                                <fieldset>
-            
-                                    <div class="form-field">
-                                        <input name="cName" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
-                                    </div>
-            
-                                    <div class="form-field">
-                                        <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email" value="" type="text">
-                                    </div>
-            
-                                    <div class="form-field">
-                                        <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value="" type="text">
-                                    </div>
-            
-                                    <div class="message form-field">
-                                        <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
-                                    </div>
-            
-                                    <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Add Comment" type="submit">
-            
-                                </fieldset>
-                            </form> <!-- end form -->
-            
-                        </div>
-                        <!-- END respond-->
-            
-                    </div> <!-- end comment-respond -->
-            
-                </div> <!-- end comments-wrap -->
-            </main>
-
-        </div> <!-- end s-content -->
-
-
-        <!-- footer
+            <!-- footer
         ================================================== -->
-        <footer class="s-footer footer">
-            <div class="row">
-                <div class="column large-full footer__content">
-                    <div class="footer__copyright">
+            <footer class="s-footer">
+                <div class="row">
+                    <div class="column large-full footer__content">
+                        <!--<div class="footer__copyright">
                         <span>© Copyright Typerite 2019</span> 
                         <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+                    </div>-->
                     </div>
                 </div>
-            </div>
 
-            <div class="go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top"></a>
-            </div>
-        </footer>
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                </div>
+            </footer>
 
-    </div> <!-- end s-wrap -->
+        </div> <!-- end s-wrap -->
 
 
-    <!-- Java Script
+        <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            // IntersectionObserver to detect when items come into view
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show'); // Add 'show' class when item is in view
+                        observer.unobserve(entry.target); // Stop observing after it is revealed
+                    }
+                });
+            }, {
+                threshold: 0.5, // Trigger when at least 50% of the item is in view
+            });
 
+            // Observe each masonry item
+            const items = document.querySelectorAll('.masonry-item');
+            items.forEach(item => {
+                observer.observe(item);
+            });
+        </script>
+    </div>
 </body>
