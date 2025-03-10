@@ -2396,7 +2396,8 @@ input::-moz-focus-inner {
 }
 
 .header__nav li ul a {
-  line-height: 3.2rem;
+  line-height: 2.2rem;
+  padding-bottom: 20px;
 }
 
 /* ------------------------------------------------------------------- 
@@ -3107,8 +3108,8 @@ body.search-is-visible {
 @media screen and (max-width:1600px) {
   .s-content,
   .s-footer {
-    /*padding-left: 320px;*/
-    padding-left: 250px;
+    padding-left: 330px;
+    /*padding-left: 250px;*/
   }
 
 }
