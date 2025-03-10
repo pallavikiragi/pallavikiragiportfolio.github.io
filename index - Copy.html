@@ -30,202 +30,235 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-<style>
-.grid-container {
-      display: grid;
-      grid-template-rows: auto auto auto;
-      gap: 15px;
-      max-width: 1200px;
-      width: 100%;
-      margin-top: 70px;
-      margin-bottom: 70px;
-    }
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto auto auto;
+            gap: 15px;
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
 
-    /* First Main Row */
-    .row-1 {
-      display: grid;
-      grid-template-columns: 30% 30% 38%;
-      gap: 15px;
-    }
+        /* First Main Row */
+        .row-1 {
+            display: grid;
+            grid-template-columns: 30% 30% 38%;
+            gap: 15px;
+        }
 
-    .row-1 .item-1 {
-      /* height: 300px; */
-    }
+        .row-1 .item-1 {
+            /* height: 300px; */
+        }
 
-    .row-1 .item-2 {
-      /* height: 300px; */
-    }
+        .row-1 .item-2 {
+            /* height: 300px; */
+        }
 
-    /* Second Main Row */
-    .row-2 {
-      display: grid;
-      grid-template-columns: 30% 70%;
-      gap: 15px;
-    }
+        /* Second Main Row */
+        .row-2 {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            gap: 15px;
+        }
 
-    .row-2 .col-1 {
-      display: grid;
-      grid-template-rows: 50% 30%;
-      gap: 15px;
-    }
+        .row-2 .col-1 {
+            display: grid;
+            grid-template-rows: 50% 30%;
+            gap: 15px;
+        }
 
-    .row-2 .col-2 {
-      display: grid;
-      grid-template-rows: 24% 53%;
-      gap: 15px;
-    }
+        .row-2 .col-2 {
+            display: grid;
+            grid-template-rows: 24% 53%;
+            gap: 15px;
+        }
 
-    .row-2 .col-2 .row-2-2 {
-      display: grid;
-      grid-template-columns: 57% 42%;
-      gap: 15px;
-    }
+        .row-2 .col-2 .row-2-2 {
+            display: grid;
+            grid-template-columns: 57% 42%;
+            gap: 15px;
+        }
 
-    .row-2 .col-2 .row-2-2 .item-6 {
-      grid-row: span 2; /* Extends beyond the row */
-    }
+        .row-2 .col-2 .row-2-2 .item-6 {
+            grid-row: span 2;
+            /* Extends beyond the row */
+        }
 
-    /* Make item-8 extend to fill the height of the column */
-    .row-2 .col-2 .row-2-2 .item-8 {
-      height: 100%;
-      display: flex;
-      align-items: stretch;
-    }
+        /* Make item-8 extend to fill the height of the column */
+        .row-2 .col-2 .row-2-2 .item-8 {
+            height: 100%;
+            display: flex;
+            align-items: stretch;
+        }
 
-    /* Third Main Row */
-    .row-3 {
-      justify-content: left;
-      align-items: flex-start;
-      height: auto;
-      margin-top: -155px;
-    }
+        /* Third Main Row */
+        .row-3 {
+            justify-content: left;
+            align-items: flex-start;
+            height: auto;
+            margin-top: -155px;
+        }
 
-    .masonry-item {
-      background-color: black;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateX(-100px); /* Start from left or right based on condition */
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-      position: relative;
-      text-align: center;
-      /* padding: 20px; */
-    }
+        .masonry-item {
+            background-color: black;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(-100px);
+            /* Start from left or right based on condition */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            position: relative;
+            text-align: center;
+            /* padding: 20px; */
+        }
+        
+        .masonry-item h1 {
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 2;
+            background: linear-gradient(to bottom, rgb(0 0 0), rgb(0 0 0 / 3%));
+            padding: 5px 10px;
+            width: 100%;
+            margin-top: 0;
+        }
 
-    .masonry-item.show {
-      opacity: 1;
-      transform: translateX(0);
-      border-radius: 8px;
-    }
+        .masonry-item:hover h1 {
+            opacity: 1;
+            /* Ensures visibility on hover */
+            /* background: rgba(0, 0, 0, 0); */
+        }
 
-    .masonry-item-right {
-      transform: translateX(100px); /* Items from the right side */
-    }
+        .masonry-item.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
 
-    .masonry-item-left {
-      transform: translateX(-100px); /* Items from the left side */
-    }
+        .masonry-item-right {
+            transform: translateX(100px);
+            /* Items from the right side */
+        }
 
-    .masonry-item-bottom {
-      transform: translateY(100px); /* Item 6 comes from the bottom */
-    }
+        .masonry-item-left {
+            transform: translateX(-100px);
+            /* Items from the left side */
+        }
 
-    .masonry-item-bottom.show {
-      transform: translateY(0); /* Ends at its normal position */
-    }
+        .masonry-item-bottom {
+            transform: translateY(100px);
+            /* Item 6 comes from the bottom */
+        }
 
-    .masonry-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 1;
-      transition: opacity 0.3s;
-    }
+        .masonry-item-bottom.show {
+            transform: translateY(0);
+            /* Ends at its normal position */
+        }
 
-    .masonry-item:hover img {
-      opacity: 0.3; /* Dims image on hover */
-    }
+        .masonry-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
 
-    .masonry-item .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: flex;
-      justify-content: left;
-      align-items: left;
-      font-size: 12px;
-      display: grid
-;
-    }
+        .masonry-item:hover img {
+            opacity: 0.3;
+            /* Dims image on hover */
+        }
 
-    .masonry-item .arrow-icon {
-      color: #ffffff;
-      margin-left: 10px;
-      font-size: 24px;
-      transition: transform 0.3s ease;
-    }
+        .masonry-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgb(0 0 0 / 9%);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3sease;
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+            display: grid;
+            padding-top: 53px;
+            padding-left: 10px;
+            padding-right: 10px;
+            line-height: 20px;
+            text-align: left;
+        }
 
-    .masonry-item:hover .overlay {
-      opacity: 1;
-    }
+        .masonry-item .arrow-icon {
+            color: #ffffff;
+            margin-left: 10px;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
 
-    .masonry-item:hover .arrow-icon {
-      transform: translateX(10px); /* Moves arrow icon slightly to the right on hover */
-    }
+        .masonry-item:hover .overlay {
+            opacity: 1;
+        }
 
-    .overlay-text {
-      display: block;
-      padding-top: 80px;
-      padding-left: 16px;
-      padding-right: 14px;
-      align-items: center;
-    }
+        .masonry-item:hover .arrow-icon {
+            transform: translateX(10px);
+            /* Moves arrow icon slightly to the right on hover */
+        }
+
+        .overlay-text {
+            display: block;
+            align-items: center;
+        }
 
 
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .grid-container {
-        grid-template-rows: auto auto;
-      }
-      
-      .row-1, .row-2, .row-3 {
-        grid-template-columns: 1fr;
-      }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-rows: auto auto;
+            }
 
-      .row-1 {
-        grid-template-columns: 1fr; /* Stack columns vertically */
-      }
+            .row-1,
+            .row-2,
+            .row-3 {
+                grid-template-columns: 1fr;
+            }
 
-      .row-2 {
-        grid-template-columns: 1fr; /* Stack columns vertically */
-      }
+            .row-1 {
+                grid-template-columns: 1fr;
+                /* Stack columns vertically */
+            }
 
-      .row-2 .col-1,
-      .row-2 .col-2 {
-        grid-template-rows: auto;
-      }
+            .row-2 {
+                grid-template-columns: 1fr;
+                /* Stack columns vertically */
+            }
 
-      .row-2 .col-2 .row-2-2 {
-        grid-template-columns: 1fr;
-      }
+            .row-2 .col-1,
+            .row-2 .col-2 {
+                grid-template-rows: auto;
+            }
 
-      .masonry-item {
-        margin-bottom: 10px;
-      }
+            .row-2 .col-2 .row-2-2 {
+                grid-template-columns: 1fr;
+            }
 
-      .row-3 {
-        margin-top: 0;
-      }
-    }
-</style>
+            .masonry-item {
+                margin-bottom: 10px;
+                height: 300px;
+            }
+
+            .row-3 {
+                margin-top: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -345,42 +378,53 @@
                         <!-- Row 1 -->
                         <div class="row-1">
                             <div class="masonry-item item-1 masonry-item-left">
+                                <h1 class="item-title">Cyberculture in Airports</h1>
                                 <img src="images\covers\cargo covers\nm1.jpg" alt="Image 1" width="500" height="600">
                                 <div class="overlay">
-                                    <div class="overlay-text">
-                                        <span>These projects use computational processes to generate diverse design options, focusing on context and experimentation within new media design, which integrates audio, video, and electronic text in a global network.</span>
+                                    <div class="overlay-text">These projects use computational
+                                            processes to generate diverse design options, focusing on context and
+                                            experimentation within new media design, which integrates audio, video, and
+                                            electronic text in a global network.</span>
 
                                     </div>
-                                    <div class="overlay-text">
+                                    <div class="overlay-text"style="text-align: center;">
                                         <a href=""> <span class="arrow-icon">→</span></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="masonry-item item-3 masonry-item-right">
+                                <h1 class="item-title">Exploring cross-modal concepts</h1>
                                 <img src="images/covers/workss.jpg" alt="Image 3">
                                 <div class="overlay">
                                     <div class="overlay-text">
-                                        <span>Exploring cross-modal concepts in automotive experiences unlock innovative possibilities. Through prototyping and multimedia integration, this approach transforms the user experience by merging technology with automotive design.</span>
+                                        <span>Exploring cross-modal concepts in automotive experiences unlock innovative
+                                            possibilities. Through prototyping and multimedia integration, this approach
+                                            transforms the user experience by merging technology with automotive
+                                            design.</span>
 
                                     </div>
-                                    <div class="overlay-text">
+                                    <div class="overlay-text"style="text-align: center;">
                                         <a href=""> <span class="arrow-icon">→</span></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="masonry-item item-2 masonry-item-right">
+                                <h1 class="item-title">Exploring cross-modal concepts</h1>
                                 <img src="images/covers/a2.jpg" alt="Image 2">
                                 <div class="overlay">
                                     <div class="overlay-text">
-                                        <span>Exploring cross-modal concepts in automotive experiences unlock innovative possibilities. Through prototyping and multimedia integration, this approach transforms the user experience by merging technology with automotive design.</span>
+                                        <span>Exploring cross-modal concepts in automotive experiences unlock innovative
+                                            possibilities. Through prototyping and multimedia integration, this approach
+                                            transforms the user experience by merging technology with automotive
+                                            design.</span>
 
                                     </div>
-                                    <div class="overlay-text">
+                                    <div class="overlay-text"style="text-align: center;">
                                         <a href=""> <span class="arrow-icon">→</span></a>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <!-- Row 2 -->
@@ -388,24 +432,33 @@
                             <!-- Column 1 -->
                             <div class="col-1">
                                 <div class="masonry-item item-3 masonry-item-bottom">
+                                    <h1 class="item-title">Exploring cross-modal concepts</h1>
                                     <img src="3.avif" alt="Image 4">
                                     <div class="overlay">
                                         <div class="overlay-text">
-                                            <span>A sonic visualization of active cases and mortality rates across India's states and union territories from the onset of COVID-19 to March 2022, created using OSC and sound synthesis. This project was featured in the Museum of Contemporary Digital Arts Summer Show 2022.</span>
+                                            <span>A sonic visualization of active cases and mortality rates across
+                                                India's states and union territories from the onset of COVID-19 to March
+                                                2022, created using OSC and sound synthesis. This project was featured
+                                                in the Museum of Contemporary Digital Arts Summer Show 2022.</span>
                                         </div>
-                                        <div class="overlay-text">
+                                        <div class="overlay-text"style="text-align: center;">
                                             <a href=""> <span class="arrow-icon">→</span></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="masonry-item item-4 masonry-item-right">
+                                    <h1 class="item-title">Exploring cross-modal concepts</h1>
                                     <img src="7.avif" alt="Image 4.1">
                                     <div class="overlay">
                                         <div class="overlay-text">
-                                            <span>These companies and studios offered practical training that bridged my academic knowledge with real-world applications. Collaborating with industry professionals gave me valuable insights into real-world challenges and opportunities, enhancing my understanding of the field.</span>
+                                            <span>These companies and studios offered practical training that bridged my
+                                                academic knowledge with real-world applications. Collaborating with
+                                                industry professionals gave me valuable insights into real-world
+                                                challenges and opportunities, enhancing my understanding of the
+                                                field.</span>
 
                                         </div>
-                                        <div class="overlay-text">
+                                        <div class="overlay-text"style="text-align: center;">
                                             <a href=""> <span class="arrow-icon">→</span></a>
                                         </div>
                                     </div>
@@ -415,51 +468,69 @@
                             <!-- Column 2 -->
                             <div class="col-2">
                                 <div class="masonry-item item-5 masonry-item-right">
+                                    <h1 class="item-title">Exploring cross-modal concepts</h1>
                                     <img src="images/covers/levii2.jpg" style="height: 167%" alt="Image 5">
                                     <div class="overlay">
                                         <div class="overlay-text">
                                             <span>
-                                            This project focused on brand design and strategy, reimagining Levi's as "LEVI" with a focus on sustainability. Inspired by Boro clothing, the rebrand promotes waste management and the reuse of worn-out denim, introducing a new trend in eco-conscious fashion.</span>
+                                                This project focused on brand design and strategy, reimagining Levi's as
+                                                "LEVI" with a focus on sustainability. Inspired by Boro clothing, the
+                                                rebrand promotes waste management and the reuse of worn-out denim,
+                                                introducing a new trend in eco-conscious fashion.</span>
 
                                         </div>
-                                        <div class="overlay-text">
+                                        <div class="overlay-text"style="text-align: center;">
                                             <a href=""> <span class="arrow-icon">→</span></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row-2-2">
                                     <div class="masonry-item item-6 masonry-item-bottom">
+                                        <h1 class="item-title">Exploring cross-modal concepts</h1>
                                         <img src="6.png" alt="Image 6">
                                         <div class="overlay">
                                             <div class="overlay-text">
-                                                <span>For this project, Chickpete, Bengaluru's bustling marketplace, was chosen as the focus. Through on-site explorations and field visits, I analyzed the interactions between human and non-human elements in gathering spaces. Key landmarks were identified as central points for rendezvous and references.</span>
+                                                <span>For this project, Chickpete, Bengaluru's bustling marketplace, was
+                                                    chosen as the focus. Through on-site explorations and field visits,
+                                                    I analyzed the interactions between human and non-human elements in
+                                                    gathering spaces. Key landmarks were identified as central points
+                                                    for rendezvous and references.</span>
 
                                             </div>
-                                            <div class="overlay-text">
+                                            <div class="overlay-text"style="text-align: center;">
                                                 <a href=""> <span class="arrow-icon">→</span></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="masonry-item item-7 masonry-item-left">
+                                    <div class="masonry-item item-7 masonry-item-left" style="height: 280px;">
+                                        <h1 class="item-title">Exploring cross-modal concepts</h1>
                                         <img src="6.avif" alt="Image 7">
                                         <div class="overlay">
                                             <div class="overlay-text">
-                                                <span>This project explored the role of personal data in smart home technology, focusing on designing products that enhance productivity and lifestyle through active data collection. It highlighted the interdependence between personalization and smart home systems.</span>
+                                                <span>This project explored the role of personal data in smart home
+                                                    technology, focusing on designing products that enhance productivity
+                                                    and lifestyle through active data collection. It highlighted the
+                                                    interdependence between personalization and smart home
+                                                    systems.</span>
 
                                             </div>
-                                            <div class="overlay-text">
+                                            <div class="overlay-text"style="text-align: center;">
                                                 <a href=""> <span class="arrow-icon">→</span></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="masonry-item item-8 masonry-item-right">
+                                        <h1 class="item-title">Exploring cross-modal concepts</h1>
                                         <img src="8.avif" alt="Image 8">
                                         <div class="overlay">
                                             <div class="overlay-text">
-                                                <span>Proxemics as a method for space allocation and data collection exploring in an Exhibition and Convention centers. Plausible for pandemics, like Covid-19, how to organize a crowd-oriented space with social distancing using proximity as a factor.</span>
+                                                <span>Proxemics as a method for space allocation and data collection
+                                                    exploring in an Exhibition and Convention centers. Plausible for
+                                                    pandemics, like Covid-19, how to organize a crowd-oriented space
+                                                    with social distancing using proximity as a factor.</span>
 
                                             </div>
-                                            <div class="overlay-text">
+                                            <div class="overlay-text"style="text-align: center;">
                                                 <a href=""> <span class="arrow-icon">→</span></a>
                                             </div>
                                         </div>
@@ -471,12 +542,16 @@
                         <!-- Row 3 -->
                         <div class="row-3">
                             <div class="masonry-item item-9 masonry-item-left" style="height: 320px;">
+                                <h1 class="item-title">Exploring cross-modal concepts</h1>
                                 <img src="9.avif" alt="Image 9">
                                 <div class="overlay">
                                     <div class="overlay-text">
-                                        <span>Focuses on exploring usecases with different materials and iterating potential functions and features. It emphasizes creating a non-linear development process in product design and industrial manufacturing, aiming for greater transparency and innovation.</span>
+                                        <span>Focuses on exploring usecases with different materials and iterating
+                                            potential functions and features. It emphasizes creating a non-linear
+                                            development process in product design and industrial manufacturing, aiming
+                                            for greater transparency and innovation.</span>
                                     </div>
-                                    <div class="overlay-text">
+                                    <div class="overlay-text"style="text-align: center;">
                                         <a href=""> <span class="arrow-icon">→</span></a>
                                     </div>
                                 </div>
@@ -520,21 +595,21 @@
         <script>
             // IntersectionObserver to detect when items come into view
             const observer = new IntersectionObserver((entries, observer) => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('show'); // Add 'show' class when item is in view
-                  observer.unobserve(entry.target); // Stop observing after it is revealed
-                }
-              });
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show'); // Add 'show' class when item is in view
+                        observer.unobserve(entry.target); // Stop observing after it is revealed
+                    }
+                });
             }, {
-              threshold: 0.5, // Trigger when at least 50% of the item is in view
+                threshold: 0.5, // Trigger when at least 50% of the item is in view
             });
-        
+
             // Observe each masonry item
             const items = document.querySelectorAll('.masonry-item');
             items.forEach(item => {
-              observer.observe(item);
+                observer.observe(item);
             });
-          </script>
+        </script>
     </div>
 </body>
