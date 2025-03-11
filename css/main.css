@@ -2314,6 +2314,7 @@ input::-moz-focus-inner {
   max-width: 100%;
 /*  background-color: #151515;
 */  margin-top: 3.2rem;
+    margin-bottom: 3.2rem;
 }
 
 .header__nav-wrap a {
@@ -3000,7 +3001,7 @@ body.search-is-visible {
 .s-footer {
   padding-left: 330px;
   padding-right: 30px;
-  max-width: 1400px;
+  max-width: 1480px;
 }
 
 /* -------------------------------------------------------------------
@@ -3108,7 +3109,7 @@ body.search-is-visible {
 @media screen and (max-width:1600px) {
   .s-content,
   .s-footer {
-    padding-left: 330px;
+    padding-left: 300px;
     /*padding-left: 250px;*/
   }
 
